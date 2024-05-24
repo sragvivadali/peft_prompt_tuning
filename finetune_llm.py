@@ -10,96 +10,33 @@ from tqdm import tqdm
 from datasets import load_dataset
 # from torch.cuda.amp import autocast
 import pdb 
-from mse_distance import compute_mse_from_str
 from accelerate import Accelerator
 import numpy as np 
 from peft import LoraConfig
 import argparse
 from datasets import load_dataset
-import csv
+import matplotlib.pyplot as plt
 
+from mse_distance import compute_mse_from_str
+from ecg2csv2 import initialize_files
+from plot_and_write import write_to_output, plot_predicted_vs_ground_truth
 
-parser = argparse.ArgumentParser()
-parser.add_argument(
-        "--peft", type=str, default='PTuning', help="PTuning | LoRA"
-    )
-parser.add_argument(
-        "--model", type=str, default='7b', help="7b | 13b "
-    )
-parser.add_argument(
-        "--query", type=str, default="imputation", help="imputation | extrapolation"
-    )
-parser.add_argument(
-    "-f", "--folder", type=str, help="folder name"
-)
-parser.add_argument(
-    "-p", "--prompt", type=str, default="Predict the missing values"
-)
-args = parser.parse_args()
+def parse_arguments():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--peft", type=str, default='PTuning', help="PTuning | LoRA")
+    parser.add_argument("--model", type=str, default='7b', help="7b | 13b ")
+    parser.add_argument("--query", type=str, default="imputation", help="imputation | extrapolation")
+    parser.add_argument("-f", "--folder", type=str, help="folder name", default="./benchmark")
+    parser.add_argument("-p", "--prompt", type=str, default="Predict the missing values")
+    parser.add_argument("-t", "--text", type=str, default="corrupted data")
+    parser.add_argument("-l", "--label", type=str, default="gt values")
+    parser.add_argument("--train", type=int, default=100)
+    parser.add_argument("--test", type=int, default=50)
+    parser.add_argument("--eval", type=int, default=20)
+    parser.add_argument("--pred", type=int, default=50)
+    return parser.parse_args()
 
-def initialize_files():
-    output_csv_file = ["./benchmark/eval.csv", "./benchmark/test.csv", "./benchmark/train.csv"]
-    start = [1, 91, 101]
-    end = [90, 100, 110]
-    
-    npy_folder = './benchmark/' + args.folder
-    # List all .npy files in the specified directory
-    npy_files = [f for f in os.listdir(npy_folder) if f.endswith('.npy')]
-
-    # Open the CSV file for writing
-    for i in range(len(output_csv_file)):
-        with open(output_csv_file[i], mode='w', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerow(['corrupted ecg', 'gt values'])
-            # Process each .npy file
-            for npy_file in npy_files:
-
-                if 'gt' in npy_file:
-                    continue
-                
-                idx = int(npy_file.split('_')[0])
-                midx = int(npy_file.split('_')[-1].split('.npy')[0])
-
-                if idx >= start[i] and idx <= end[i] and midx==50:
-                    # Load the 1-dimensional array from the .npy file
-                    array = np.load(os.path.join(npy_folder, npy_file))
-                    
-                    # Ensure the array is 1-dimensional
-                    if array.ndim != 1:
-                        print(f"Warning: {npy_file} contains a non-1-dimensional array. Skipping.")
-                        continue
-                    
-                    max_val = max(abs(array))
-                    
-                    array = [(x * 100.00) / max_val for x in array]
-                    array_str =[]
-                    for a in array:
-                        if np.isnan(a):
-                            array_str.append('nan')
-                        else:
-                            array_str.append(str(a.astype(np.int64)))
-                    array_str = ', '.join(array_str)
-
-                    # also put down gt for reference
-                    org_file = npy_file.split('.npy')[0]+'_gt.npy'
-                    org_array = np.load(os.path.join(npy_folder, org_file))
-
-                    org_array_value_str = ', '.join([str(a) for a in org_array])
-                    
-                    # Write the array as a new row in the CSV file
-                    writer.writerow([array_str, org_array_value_str])
-                    # break 
-
-    print(f"All 1-dimensional arrays have been saved to {output_csv_file}.")
-
-
-def model_training():
-    accelerator = Accelerator()
-
-
-    model_name_or_path = f"meta-llama/Llama-2-{args.model}-hf"
-    tokenizer_name_or_path = f"meta-llama/Llama-2-{args.model}-hf"
-
+def get_peft_config(args, model_name_or_path):
     assert args.peft in ('PTuning', 'LoRA')
     if args.peft == 'PTuning':
         peft_config = PromptTuningConfig(
@@ -120,26 +57,10 @@ def model_training():
                 bias="none",
                 task_type="CAUSAL_LM")
 
-    dataset_name = args.query
-    checkpoint_name = f"{dataset_name}_{model_name_or_path}_{peft_config.peft_type}_{peft_config.task_type}_v1.pt".replace(
-        "/", "_"
-    )
-    text_column = "corrupted ecg"
-    label_column = "gt values"
-    max_length = 1400
-    lr = 3e-2
-    num_epochs = 20
+    return peft_config
+
+def load_and_preprocess_datasets(dataset, tokenizer, text_column, label_column, max_length, args):
     batch_size = 2
-
-    tr_file, eval_file, ts_file = "./benchmark/train.csv", "./benchmark/eval.csv", "./benchmark/test.csv"
-    
-    dataset = load_dataset("csv", data_files={"train": tr_file, "eval": eval_file, "test": ts_file})
-
-    # data preprocessing
-    tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
-    if tokenizer.pad_token_id is None:
-        tokenizer.pad_token_id = tokenizer.eos_token_id
-
 
     def preprocess_function(examples):
         batch_size = len(examples[text_column])
@@ -174,24 +95,6 @@ def model_training():
         model_inputs["labels"] = labels["input_ids"]
         return model_inputs
 
-
-    processed_datasets = dataset.map(
-        preprocess_function,
-        batched=True,
-        num_proc=1,
-        remove_columns=dataset["train"].column_names,
-        load_from_cache_file=False,
-        desc="Running tokenizer on dataset",
-    )
-
-    train_dataset = processed_datasets["train"]
-    eval_dataset = processed_datasets["eval"]
-
-    train_dataloader = DataLoader(
-        train_dataset, shuffle=True, collate_fn=default_data_collator, batch_size=batch_size, pin_memory=True
-    )
-    eval_dataloader = DataLoader(eval_dataset, collate_fn=default_data_collator, batch_size=batch_size, pin_memory=True)
-
     def test_preprocess_function(examples):
         batch_size = len(examples[text_column])
         inputs = [f"{text_column} : {x} Predicted missing values : " for x in examples[text_column]]
@@ -210,6 +113,25 @@ def model_training():
         # pdb.set_trace()
         return model_inputs
 
+    processed_datasets = dataset.map(
+        preprocess_function,
+        batched=True,
+        num_proc=1,
+        remove_columns=dataset["train"].column_names,
+        load_from_cache_file=False,
+        desc="Running tokenizer on dataset",
+    )
+
+    train_dataset = processed_datasets["train"]
+    eval_dataset = processed_datasets["eval"]
+
+    train_dataloader = DataLoader(
+        train_dataset, shuffle=True, collate_fn=default_data_collator, batch_size=batch_size, pin_memory=True
+    )
+
+    eval_dataloader = DataLoader(
+        eval_dataset, collate_fn=default_data_collator, batch_size=batch_size, pin_memory=True
+    )
 
     test_dataset = dataset["test"].map(
         test_preprocess_function,
@@ -220,33 +142,14 @@ def model_training():
         desc="Running tokenizer on dataset",
     )
 
-    test_dataloader = DataLoader(test_dataset, collate_fn=default_data_collator, batch_size=batch_size, pin_memory=True)
-
-    # creating model
-    model = AutoModelForCausalLM.from_pretrained(model_name_or_path)
-    model = get_peft_model(model, peft_config)
-    model.print_trainable_parameters()
-
-    # model
-    # optimizer and lr scheduler
-    optimizer = torch.optim.AdamW(model.parameters(), lr=lr)
-    lr_scheduler = get_linear_schedule_with_warmup(
-        optimizer=optimizer,
-        num_warmup_steps=0,
-        num_training_steps=(len(train_dataloader) * num_epochs),
+    test_dataloader = DataLoader(
+        test_dataset, collate_fn=default_data_collator, batch_size=batch_size, pin_memory=True
     )
 
-    device = accelerator.device
+    return train_dataloader, eval_dataloader, test_dataloader
 
-    # training and evaluation
-    model = model.to(device)
-
-    model, optimizer, train_dataloader, eval_dataloader, test_dataloader, lr_scheduler = accelerator.prepare(
-        model, optimizer, train_dataloader, eval_dataloader, test_dataloader, lr_scheduler
-    )
-
+def train_and_evaluate(model, device, tokenizer, optimizer, lr_scheduler, train_dataloader, eval_dataloader, accelerator, num_epochs):
     for epoch in range(num_epochs):
-        
         model.train()
         total_loss = 0
         for step, batch in enumerate(tqdm(train_dataloader)):
@@ -282,45 +185,102 @@ def model_training():
         eval_ppl = torch.exp(eval_epoch_loss)
         train_epoch_loss = total_loss / len(train_dataloader)
         train_ppl = torch.exp(train_epoch_loss)
+
         print(f"{epoch=}: {train_ppl=} {train_epoch_loss=} {eval_ppl=} {eval_epoch_loss=}")
-        
 
-    optimizer.zero_grad()
     del optimizer
+    return model
 
+def test_model(dataset, model, device, test_dataloader, tokenizer, text_column, label_column, args):
     model.eval()
 
     mse_list = []
-    with open("output.txt", "w") as f:
-        for i in range(len(dataset["test"])):
-            with torch.no_grad():
-                inputs = tokenizer(f'{text_column} : {dataset["test"][i][text_column]} Predicted missing values : ', return_tensors="pt")
-                inputs = {k: v.to(device) for k, v in inputs.items()}
-                outputs = model.generate(
-                    input_ids=inputs["input_ids"], attention_mask=inputs["attention_mask"], max_new_tokens=512, eos_token_id=tokenizer.eos_token_id
-                )
-                pred_str = outputs[0, inputs["input_ids"].shape[-1]:].detach().cpu().numpy()
-                pred_str = tokenizer.decode(pred_str, skip_special_tokens=True)
-                target_str = dataset["test"][i][label_column]
-                # Write output to the file
-                f.write("Output: {}\n".format(pred_str))
-                f.write("Target String: {}\n".format(target_str))
-                mse = compute_mse_from_str('ecg', pred_str, target_str)
-                f.write("MSE: {}\n".format(mse))
-                f.write("------------------------\n")
-                mse_list.append(mse)
+    for i in range(len(test_dataloader)):
+        with torch.no_grad():
+            inputs = tokenizer(f'{text_column} : {dataset["test"][i][text_column]} {args.prompt} : ', return_tensors="pt")
+            inputs = {k: v.to(device) for k, v in inputs.items()}
+            outputs = model.generate(
+                input_ids=inputs["input_ids"], attention_mask=inputs["attention_mask"], max_new_tokens=512, eos_token_id=tokenizer.eos_token_id
+            )
 
+            pred_str = tokenizer.decode(outputs[0, inputs["input_ids"].shape[-1]:].detach().cpu().numpy(), skip_special_tokens=True)
+            target_str = dataset["test"][i][label_column]
 
+            mse = compute_mse_from_str('ecg', pred_str, target_str)
 
+            write_to_output(filename = f"output_for_{args.train}_and_{args.pred}.txt", var_names = ["pred_str", "target_str", "mse"], values = [pred_str,target_str, mse])  # Example values to write to output file
+
+            mse_list.append(mse)
+
+    plot_predicted_vs_ground_truth(f"output_for_{args.train}_and_{args.pred}.txt", title = f"Ground Truth vs Predicted Data", output = f"output_for_{args.train}_and_{args.pred}.png")
     print('MSE sample wise: ', mse_list)
     print('AVG MSE: ', np.nanmean(mse_list))
-    
-
 
 
 def main():
-    initialize_files()
-    model_training()
+    args = parse_arguments()
+    accelerator = Accelerator()
+
+    # Initialize files
+    initialize_files(args.folder, args.text, args.label, args.train, pred_len=args.pred)
+
+    model_name_or_path = f"meta-llama/Llama-2-{args.model}-hf"
+    tokenizer_name_or_path = f"meta-llama/Llama-2-{args.model}-hf"
+
+    assert args.peft in ('PTuning', 'LoRA')
+    peft_config = get_peft_config(args, model_name_or_path)
+
+    dataset_name = args.query
+    checkpoint_name = f"{dataset_name}_{model_name_or_path}_{peft_config.peft_type}_{peft_config.task_type}_v1.pt".replace(
+        "/", "_"
+    )
+
+    dataset = load_dataset("csv", data_files={
+        "train": "./benchmark/train.csv", 
+        "eval": "./benchmark/eval.csv", 
+        "test": "./benchmark/test.csv"
+    })
+
+    # Load and preprocess datasets
+    tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
+    if tokenizer.pad_token_id is None:
+        tokenizer.pad_token_id = tokenizer.eos_token_id
+
+    max_input_length = max(len(input_text) * 1.1 for input_text in dataset['train'][args.text])
+    max_length = int(max_input_length)
+
+    num_epochs = 10
+
+    train_dataloader, eval_dataloader, test_dataloader = load_and_preprocess_datasets(
+        dataset, tokenizer, args.text, args.label, max_length, args
+    )
+
+    # Create model
+    model = AutoModelForCausalLM.from_pretrained(model_name_or_path)
+    model = get_peft_model(model, peft_config)
+    model.print_trainable_parameters()
+
+    # Optimizer and learning rate scheduler
+    optimizer = torch.optim.AdamW(model.parameters(), lr=3e-2)
+    lr_scheduler = get_linear_schedule_with_warmup(
+        optimizer=optimizer,
+        num_warmup_steps=0,
+        num_training_steps=(len(train_dataloader) * num_epochs),
+    )
+
+    device = accelerator.device
+    model = model.to(device)
+
+    # Prepare everything with the accelerator
+    model, optimizer, train_dataloader, eval_dataloader, test_dataloader, lr_scheduler = accelerator.prepare(
+        model, optimizer, train_dataloader, eval_dataloader, test_dataloader, lr_scheduler
+    )
+
+    # Training and evaluation
+    model = train_and_evaluate(model, device, tokenizer, optimizer, lr_scheduler, train_dataloader, eval_dataloader, accelerator, num_epochs)
+
+    # Testing
+    test_model(dataset, model, device, test_dataloader, tokenizer, args.text, args.label, args)
 
 
 if __name__ == "__main__":
