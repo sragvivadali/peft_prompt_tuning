@@ -12,14 +12,14 @@ def initialize_files(folder, text, label, train_length = 100, test_length = 50, 
     and the 'gt values' column contains corresponding ground truth values.
     """
     output_csv_file = ["./benchmark/train.csv", "./benchmark/test.csv", "./benchmark/eval.csv"]
-    start = [1, train_length + 1, train_length + test_length + 1]
-    end = [train_length, train_length + test_length, train_length + test_length + eval_length]
+    start = [201, 0, 101]
+    end = [201+train_length, test_length, 101+ eval_length]
     
     npy_folder = folder
     # List all .npy files in the specified directory
     npy_files = [f for f in os.listdir(npy_folder) if f.endswith('.npy')]
 
-    if (train_length + test_length + eval_length) > 2000:
+    if (train_length + test_length + eval_length) > 2000 or test_length > 100 or eval_length > 100:
         print(f"Invalid lengths")
         return -1
 
