@@ -191,11 +191,13 @@ def train_and_evaluate(model, device, tokenizer, optimizer, lr_scheduler, train_
     del optimizer
     return model
 
-def test_model(dataset, model, device, test_dataloader, tokenizer, text_column, label_column, args):
+def test_model(dataset, model, device, test_dataloader, tokenizer, text_column, label_column, args, max_val):
     model.eval()
 
     mse_list = []
+    count = 0
     for i in range(len(test_dataloader)):
+        invalid = False
         with torch.no_grad():
             inputs = tokenizer(f'{text_column} : {dataset["test"][i][text_column]} {args.prompt} : ', return_tensors="pt")
             inputs = {k: v.to(device) for k, v in inputs.items()}
@@ -206,15 +208,41 @@ def test_model(dataset, model, device, test_dataloader, tokenizer, text_column, 
             pred_str = tokenizer.decode(outputs[0, inputs["input_ids"].shape[-1]:].detach().cpu().numpy(), skip_special_tokens=True)
             target_str = dataset["test"][i][label_column]
 
-            mse = compute_mse_from_str('ecg', pred_str, target_str)
+            def is_integer(s):
+                try:
+                    float(s)
+                    return True
+                except ValueError:
+                    return False
+
+            pred_list = []
+            for x in pred_str.split(', '):
+                if is_integer(x):
+                    pred_list.append(float(x))
+                else:
+                    invalid = True
+
+            pred_list = np.array(pred_list)
+     
+            gt_list = np.array([float(x) for x in target_str.split(', ') if is_integer(x)])
+
+            if len(pred_list) != len(gt_list) or invalid:
+                count += 1
+
+            mse = compute_mse_from_str(max_val, pred_list, gt_list)
+
+            print("pred_str: ", pred_str)
+            print("target_str: ", target_str)
+            print("MSE: ", mse)
 
             write_to_output(filename = f"output_for_{args.train}_and_{args.pred}.txt", var_names = ["pred_str", "target_str", "mse"], values = [pred_str,target_str, mse])  # Example values to write to output file
 
             mse_list.append(mse)
 
-    plot_predicted_vs_ground_truth(f"output_for_{args.train}_and_{args.pred}.txt", title = f"Ground Truth vs Predicted Data", output = f"output_for_{args.train}_and_{args.pred}.png")
+    plot_predicted_vs_ground_truth(f"output_for_{args.train}_and_{args.pred}.txt", title = f"Ground Truth vs Predicted Data", output = f"output_for_{args.train}_and_{args.pred}.png", query = args.query)
     print('MSE sample wise: ', mse_list)
     print('AVG MSE: ', np.nanmean(mse_list))
+    print('Count: ', count)
 
 
 def main():
@@ -222,7 +250,7 @@ def main():
     accelerator = Accelerator()
 
     # Initialize files
-    initialize_files(args.folder, args.text, args.label, args.train, pred_len=args.pred)
+    max_val = initialize_files(args.folder, args.text, args.label, args.train, pred_len=args.pred)
 
     model_name_or_path = f"meta-llama/Llama-2-{args.model}-hf"
     tokenizer_name_or_path = f"meta-llama/Llama-2-{args.model}-hf"
@@ -280,7 +308,7 @@ def main():
     model = train_and_evaluate(model, device, tokenizer, optimizer, lr_scheduler, train_dataloader, eval_dataloader, accelerator, num_epochs)
 
     # Testing
-    test_model(dataset, model, device, test_dataloader, tokenizer, args.text, args.label, args)
+    test_model(dataset, model, device, test_dataloader, tokenizer, args.text, args.label, args, max_val)
 
 
 if __name__ == "__main__":

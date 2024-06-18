@@ -4,15 +4,6 @@ import os
 import csv
 
 def write_to_output(var_names, values, filename):
-    """
-    Write variable names and values to a text file.
-
-    @params:
-        var_names - array of labels sets the label for the value
-        values - array of values to track
-        filename - name of the output file or full path to the output file
-    """
-
     # Create the folder if it doesn't exist
     if not os.path.exists("output"):
         os.makedirs('output')
@@ -33,7 +24,7 @@ def write_to_output(var_names, values, filename):
         file.write("----------------------\n")
 
     
-def plot_predicted_vs_ground_truth(input_file, title="Predicted vs. Ground Truth", output = "PredictedvGT.png"):
+def plot_predicted_vs_ground_truth(input_file, title="Predicted vs. Ground Truth", output = "PredictedvGT.png", query = "imputation"):
     # Read the input CSV file
     with open('./benchmark/test.csv', 'r') as file:
         reader = csv.reader(file)
@@ -46,10 +37,10 @@ def plot_predicted_vs_ground_truth(input_file, title="Predicted vs. Ground Truth
 
     # Set up the number of rows and columns for subplots
     num_plots = len(blocks)
-    cols = 2  # Number of columns in the subplot grid
-    rows = (num_plots // cols) + (num_plots % cols > 0)  # Calculate rows needed
+    cols = 2
+    rows = (num_plots // cols) + (num_plots % cols > 0)
 
-    fig, axes = plt.subplots(rows, cols, figsize=(15, 5 * rows))
+    fig, axes = plt.subplots(rows, cols, figsize=(15 * cols, 15 * rows))  # Set figure size for 15x15 subplots
     axes = axes.flatten()  # Flatten the axes array for easy iteration
 
     for i, block in enumerate(blocks):
@@ -73,34 +64,38 @@ def plot_predicted_vs_ground_truth(input_file, title="Predicted vs. Ground Truth
                     print(f"Skipping invalid value in pred_str: {x}")
 
 
-        if i != 0:
+        if i + 1 < len(blocks):
             true_result = []
             pred_result = []
-            corrupt_data = lines[i][0].split(', ')
-            gt = lines[i][1].split(', ')
+            corrupt_data = lines[i + 1][0].split(', ')
+            gt = lines[i + 1][1].split(', ')
             j = 0
             k = 0
-            for x in corrupt_data:
-                if x != 'nan':
-                    value = float(x)
-                else:
-                    if j < len(gt):
-                        value = float(gt[j])
-                        j += 1
-                true_result.append(value)
+            
+            if query == "imputation":
+                for x in corrupt_data:
+                    if x != 'nan':
+                        value = float(x)
+                    else:
+                        if j < len(gt):
+                            value = float(gt[j])
+                            j += 1
+                    true_result.append(value)
 
-            for y in corrupt_data:
-                if y != 'nan':
-                    value = float(y)
-                else:
-                    if k < len(pred_values):
-                        value = float(pred_values[k])
-                        k += 1
-                pred_result.append(value)
-
+                for y in corrupt_data:
+                    if y != 'nan':
+                        value = float(y)
+                    else:
+                        if k < len(pred_values):
+                            value = float(pred_values[k])
+                            k += 1
+                    pred_result.append(value)
+            else:
+                true_result = corrupt_data + gt
+                pred_result = corrupt_data + pred_values
 
             # Plot the data for this line on a subplot
-            ax = axes[i]
+            ax = axes[i - 1]
             ax.plot(true_result, label='Combined Data with Ground Truth', color='blue')
             ax.plot(pred_result, label='Predicted String', color='red')
             ax.set_xlabel('Index')
@@ -108,6 +103,7 @@ def plot_predicted_vs_ground_truth(input_file, title="Predicted vs. Ground Truth
             ax.set_title(f'{title} - Line {i}')
             ax.legend()
             ax.grid(True)
+
 
     # Adjust layout
     plt.tight_layout()

@@ -2,7 +2,7 @@ import os
 import csv
 import numpy as np
 
-def initialize_files(folder, text, label, train_length = 100, test_length = 50, eval_length = 20, pred_len = 50):
+def initialize_files(folder, text, label, train_length = 100, test_length = 50, eval_length = 50, pred_len = 50):
     """
     Initialize output CSV files and populate them with data from .npy files.
 
@@ -13,7 +13,7 @@ def initialize_files(folder, text, label, train_length = 100, test_length = 50, 
     """
     output_csv_file = ["./benchmark/train.csv", "./benchmark/test.csv", "./benchmark/eval.csv"]
     start = [201, 0, 101]
-    end = [201+train_length, test_length, 101+ eval_length]
+    end = [200+train_length, test_length - 1, 100 + eval_length]
     
     npy_folder = folder
     # List all .npy files in the specified directory
@@ -60,7 +60,6 @@ def initialize_files(folder, text, label, train_length = 100, test_length = 50, 
                     org_file = npy_file.split('.npy')[0]+'_gt.npy'
                     org_array = np.load(os.path.join(npy_folder, org_file))
 
-                    max_val = max(abs(org_array))
                     org_array = [(x * 100.00) / max_val for x in org_array]
 
 
@@ -71,6 +70,7 @@ def initialize_files(folder, text, label, train_length = 100, test_length = 50, 
                     # break 
 
     print(f"All 1-dimensional arrays have been saved to {output_csv_file}.")
+    return max_val
 
 
 initialize_files("./benchmark/ppg-imputation","corrupted", "gt")
