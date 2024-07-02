@@ -195,6 +195,8 @@ def test_model(dataset, model, device, test_dataloader, tokenizer, text_column, 
     model.eval()
 
     mse_list = []
+    pred_values = []
+    gt_values = []
     count = 0
     for i in range(len(test_dataloader)):
         invalid = False
@@ -230,6 +232,8 @@ def test_model(dataset, model, device, test_dataloader, tokenizer, text_column, 
                 count += 1
 
             mse = compute_mse_from_str(max_val, pred_list, gt_list)
+            pred_values.append(pred_list)
+            gt_values.append(gt_list)
 
             print("pred_str: ", pred_str)
             print("target_str: ", target_str)
@@ -239,7 +243,7 @@ def test_model(dataset, model, device, test_dataloader, tokenizer, text_column, 
 
             mse_list.append(mse)
 
-    plot_predicted_vs_ground_truth(f"output_for_{args.train}_and_{args.pred}.txt", title = f"Ground Truth vs Predicted Data", output = f"output_for_{args.train}_and_{args.pred}.png", query = args.query)
+    plot_predicted_vs_ground_truth(pred_values, gt_values, title = f"Ground Truth vs Predicted Data", output = f"output_for_{args.train}_and_{args.pred}.png", query = args.query)
     print('MSE sample wise: ', mse_list)
     print('AVG MSE: ', np.nanmean(mse_list))
     print('Count: ', count)
@@ -251,7 +255,7 @@ def main():
 
     # Initialize files
     max_val = initialize_files(args.folder, args.text, args.label, args.train, pred_len=args.pred)
-
+    
     model_name_or_path = f"meta-llama/Llama-2-{args.model}-hf"
     tokenizer_name_or_path = f"meta-llama/Llama-2-{args.model}-hf"
 
@@ -309,7 +313,7 @@ def main():
 
     # Testing
     test_model(dataset, model, device, test_dataloader, tokenizer, args.text, args.label, args, max_val)
-
+    
 
 if __name__ == "__main__":
     main()
