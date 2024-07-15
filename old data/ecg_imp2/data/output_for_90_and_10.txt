@@ -1,0 +1,520 @@
+pred_str: -78, -16, -16, -13, -10, -9, -14, -12, -9, -9
+
+Post by Post : 62, -11, -18, -19, -18, -19, -18, -18, -18
+The National Weather Service says that snow is expected to fall through tonight and through Saturday.
+Snow is expected to fall through tonight and through Saturday.
+The National Weather Service says that snow is expected to fall through Sunday and through Monday.
+Snow is expected to fall through Sunday and through Monday.
+The National Weather Service says that snow is expected to fall through Sunday and through Monday.
+target_str: -10, -8, 3, -1, 0, -16, -10, -22, 50, 25
+mse: 0.026197773478088764
+----------------------
+pred_str: -11, -17, -21, -27, -27, -27, -27, -29, -30, -31
+
+Areas in or near the city of Gainesville
+target_str: 72, -92, -16, -7, 1, 4, 8, 10, 22, 39
+mse: 0.03039457983205824
+----------------------
+pred_str: 0, 0, -23, -15, -22, -19, -17, -23, -18
+Harrisonburg, PA
+The National Weather Service has issued a Winter Storm Watch for Monday
+...WINTER STORM WATCH...
+A winter storm watch is in effect until Monday evening.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+This is the final ECG forecast for Monday
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+...WINTER STORM WATCH...
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of snow.
+Increasing clouds with periods of
+target_str: 91, 94, 71, 22, -10, -12, -33, -25, -29, -17
+mse: 0.0200373084887936
+----------------------
+pred_str: -19, -13, -15, -12, -8, -1, 2, 12, 28, 40,
+
+-13, -25, -32, -36, -40, -38, -42, -44, -46, -48, -49, -49, -49, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -50, -
+target_str: -16, -1, 11, 13, -23, -2, -47, 62, 55, -68
+mse: 0.006658064572837815
+----------------------
+pred_str: -11, -1, -2, -1, -1, -1, -1, -1, -1, -1, -1, -1
+
+target_str: -1, 0, 4, -17, 0, -29, 47, 76, -41, -8
+mse: 0.026069202345132776
+----------------------
+pred_str: -22, -26, -23, -19, -15, -12, -12, -13, -11, -10, -10
+
+Cooler weather on Saturday and Sunday
+Mostly cloudy with rain showers in the afternoon. Highs in the mid 50s. Chance of rain and snow showers.
+Wind: WNW @ 11 mph
+target_str: 34, 24, 7, -4, -10, -15, -17, -13, -15, -12
+mse: 0.07266068056053471
+----------------------
+pred_str: -9, -10, -10, -11, -11, -11, -11, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -12, -
+target_str: -5, -6, -5, -5, -1, 0, 4, 9, 10, 5
+mse: 0.01677245492891174
+----------------------
+pred_str: -11, -11, -13, -13, -15, -13, -13, -13, -15, -14
+
+Snowfall...
+Friday, January 22, 2021
+Today: Sunny, with a high around 33. North wind 6 to 8 mph.
+Mostly sunny, with a high near 33. North wind around 6 mph.
+Mostly sunny, with a high near 33. North wind around 7 mph.
+Mostly sunny, with a high near 33. North wind around 6 mph.
+Mostly sunny, with a high near 33. North wind around 7 mph.
+Mostly sunny, with a high near 33. North wind around 6 mph.
+Mostly sunny, with a high near 33. North wind around 7 mph.
+Mostly sunny, with a high near 33. North wind around 6 mph.
+Mostly sunny, with a high near 33. North wind around 7 mph.
+Mostly sunny, with a high near 33. North wind around 6 mph.
+Mostly sunny, with a high near 33. North wind around 7 mph.
+Mostly sunny, with a high near 33. North wind around 6 mph.
+Mostly sunny, with a high near 33. North wind around 7 mph.
+Mostly sunny, with a high near 33. North wind around 6 mph.
+Mostly sunny, with a high near 33. North wind around 7 mph.
+Mostly sunny, with a high near 33. North wind around 6 mph.
+Mostly sunny, with a high near 33. North wind around 7 mph.
+Mostly sunny, with a high near 33. North wind around 6 mph.
+Mostly sunny, with a high near 33. North wind around 7 mph.
+Mostly sunny, with a high near 
+target_str: 30, 42, 45, 36, 10, -4, -7, -11, -14, -8
+mse: 0.028515976672256048
+----------------------
+pred_str: -14, -16, -18, -17, -15, -12, -20, -19, -19, -21
+
+target_str: -14, 5, -6, 0, -13, 3, -15, 0, -14, -2
+mse: 0.001133169715845352
+----------------------
+pred_str: -5, -5, -10, -13, -10, -11, -11, -9, -12, -13, -13
+
+<15>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-16>-1
+target_str: 9, 0, -8, -8, -11, -10, -9, -8, -8, -4
+mse: 0.0010557868780871212
+----------------------
+pred_str: -10, -11, -11, -11, -10, -11, -10, -10, -11, -11, -10
+
+Northern Virginia:
+A mix of rain and snow showers. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may accumulate on grassy surfaces. Snow may
+target_str: 0, -8, -9, -8, -6, -10, -10, -9, -8, -8
+mse: 0.0005139494734384022
+----------------------
+pred_str: -1, 0, -2, -4, -4, -4, -2, -4, -2, -2, -2
+.53.13.12.11.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.10.1
+target_str: 0, 5, 10, 24, 37, 37, 26, 12, 3, 1
+mse: 0.0757169130789962
+----------------------
+pred_str: -1, -2, -6, -1, -2, -5, -4, -1, -1, -1, -3
+Hurricane (https://www.wunderground.com/hurricane/index.asp?ID=HRI20221910)
+This is the Discussion Thread, which is 28 pages long:
+The Eye is an experimental weather forecast for Cedar Rapids, Indiana. (updated Thu 23 Feb 2023 6:00pm EST)
+Mostly cloudy skies will be around today with a few showers of rain. A few showers of snow will be possible late this afternoon into the evening.
+Mostly cloudy skies will be around today with a few showers of rain. A few showers of snow will be possible late this afternoon into the evening.
+Mostly cloudy skies will be around today with a few showers of rain. A few showers of snow will be possible late this afternoon into the evening.
+Mostly cloudy skies will be around today with a few showers of rain. A few showers of snow will be possible late this afternoon into the evening.
+Mostly cloudy skies will be around today with a few showers of rain. A few showers of snow will be possible late this afternoon into the evening.
+Mostly cloudy skies will be around today with a few showers of rain. A few showers of snow will be possible late this afternoon into the evening.
+Mostly cloudy skies will be around today with a few showers of rain. A few showers of snow will be possible late this afternoon into the evening.
+Mostly cloudy skies will be around today with a few showers of rain. A few showers of snow will be possible late this afternoon into the evening.
+Mostly cloudy skies will be around today with a few showers of rain. A few showers of snow will be possible late this afternoon into the evening.
+Mostly cloudy skies will be around today with a few showers of rain. A few showers of snow will be possible late this afternoon into the evening.
+Mostly cloudy skies will be around today with a few showers of rain. A few showers of snow
+target_str: 0, -1, 0, -3, -6, -6, -6, -9, -8, -3
+mse: 0.0002073789137353004
+----------------------
+pred_str: -10, -10, -11, -11, -11, -10, -11, -11, -11, -11, -11, -11
+
+A man with the name "Ethan" was spotted near Bremerton.
+A man with the name "Ethan" was spotted near Bremerton.
+A man with the name "Ethan" was spotted near Lacey.
+A man with the name "Ethan" was spotted near Yakima.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near Dryden.
+A man with the name "Ethan" was spotted near
+target_str: 6, -2, -15, -13, -17, 5, 87, -12, -11, -12
+mse: 0.02365442645474095
+----------------------
+pred_str: -1, -5, -1, -2, -2, -1, -1, -1, 0, -3, -1, -10, -12, -19, -26, -13, -1, -4, -2, -2, -3, -2, -2, -3, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2,
+target_str: 12, 4, -1, -3, -5, -4, -3, -3, -5, -4
+mse: 0.0026374574016653695
+----------------------
+pred_str: -27, -26, -23, -21, -19, -21, -19, -19, -21, -21, -22
+
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of snow, sleet and freezing rain in the area...
+A mix of
+target_str: 3, -11, -2, -1, 2, 5, 13, 27, 35, 41
+mse: 0.044833510502977805
+----------------------
+pred_str: -20, -26, -27, -27, -28, -29, -29, -29, -30, -30
+
+...
+
+
+<20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20>-20
+target_str: -23, -41, -15, 70, -55, -26, -25, -18, -12, -13
+mse: 0.012210733226864749
+----------------------
+pred_str: -1, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3
+target_str: 3, 10, 23, 38, 55, 68, 67, 53, 23, 2
+mse: 0.03053403388038219
+----------------------
+pred_str: -9, -10, -11, -12, -13, -14, -15, -16, -18, -17, -19, -20
+Snow showers accumulating near Nogales
+Snow showers accumulating near Nogales after 12:00PM MST
+Nogales Arizona United States
+Snow showers accumulating near Nogales after 12:00PM MST
+Nogales Arizona
+Nogales Arizona
+Nogales Arizona
+Snow showers accumulating near Nogales after 12:00AM MST
+Nogales Arizona
+Snow showers accumulating near Nogales after 12:00AM MST
+Nogales Arizona
+Snow showers accumulating near Nogales after 12:00AM MST
+Nogales Arizona
+Nogales Arizona
+Snow showers accumulating near Nogales after 12:00AM MST
+Nogales Arizona
+Nogales Arizona 37.0°F Partly Cloudy
+Nogales Arizona 36.0°F Partly Cloudy
+Nogales Arizona 36.0°F Mostly Cloudy
+Nogales Arizona 36.0°F Mostly Cloudy
+Nogales Arizona 37.0°F Cloudy
+Nogales Arizona 36.0°F Cloudy
+Nogales Arizona 37.0°F Mostly Cloudy
+Nogales Arizona 36.0°F Mostly Cloudy
+Nogales Arizona 37.0°F Partly Cloudy
+Nogales Arizona 37.0°F Partly Cloudy
+Nogales Arizona 37.0°F Cloudy
+Nogales Arizona 37.0°F Mostly Cloudy
+Nogales Arizona 37.0°F Mostly Cloudy
+Nogales Arizona 37.0°F Mostly Cloudy
+Nogales Arizona 37.0°F Mostly Cloudy
+Nogales Arizona 37.0°F Partly Cloudy
+Nogales Arizona 37.0°F Partly Cloudy
+Nogales Arizona 37.0°F Cloudy
+N
+target_str: -3, -5, -4, -5, -5, -4, -6, -9, -9, -10
+mse: 0.006033150933878928
+----------------------
+pred_str: -11, -15, -14, -13, -13, -13, -13, -12, -12, -11, -10
+
+target_str: 0, -8, -1, 5, 17, 0, -12, -14, -9, -13
+mse: 0.002329700880646912
+----------------------
+pred_str: 130, 129, 128, 127, 125, 123, 122, 120, 118, 117, 115, 112, 110, 108, 106, 104, 101, 100, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -6, -8, -13, -16, -17, -15, -1
+target_str: 92, 55, 11, -11, -13, -21, -24, -10, -11, -12
+mse: 0.10056142638967161
+----------------------
+pred_str: -2, -3, -2, -3, -2, -3, -3, -3, -3, -3, -3
+
+<1, 0, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
+target_str: -2, 3, 3, -1, -11, 1, -19, 27, 99, -66
+mse: 0.013516846008511645
+----------------------
+pred_str: 0, 0, -12, -11, -10, -12, -12, -12, -12, -12
+
+Fairfax, Georgia Forecast for Wednesday, November 29, 2017
+Fairfax, Georgia
+target_str: -1, -13, -3, 5, 0, -17, -5, -8, 19, -60
+mse: 0.013350855212862478
+----------------------
+pred_str: -12, -12, -12, -13, -13, -13, -13, -13, -13, -13, -13, -13
+
+target_str: -11, -8, -5, -1, 6, 13, 23, 32, 31, 18
+mse: 0.039387714771565434
+----------------------
+pred_str: -14, -14, -14, -14, -14, -14, -14, -14, -14, -14
+target_str: -10, -6, -16, -10, -11, -11, -14, -13, -15, -10
+mse: 0.0006472680690584471
+----------------------
+pred_str: -2, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
+target_str: 38, 46, 43, 30, 20, 20, 18, 8, -2, -7
+mse: 0.044742688003505504
+----------------------
+pred_str: -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81, -81,
+target_str: -81, -81, -81, -81, -81, -81, -81, -81, -81, -81
+mse: 0.0
+----------------------
+pred_str: -12, -12, -13, -15, -14, -13, -12, -11, -10, -7, -6
+
+Areas of the ECG that include "861000" and "861002" are forecasted to be mostly sunny with a few clouds.
+Thursday... Mostly sunny. Highs in the mid 60s.
+Friday... Mostly sunny. Highs in the mid 60s.
+Saturday... Mostly sunny. Highs in the mid 60s.
+Sunday... Mostly sunny. Highs in the mid 60s.
+Monday... Mostly cloudy. Highs in the mid 60s.
+Tuesday... Mostly cloudy. Highs in the mid 60s.
+Wednesday... Partly cloudy. Highs in the mid 60s.
+Thursday... Partly cloudy. Highs in the mid 60s.
+Friday... Mostly cloudy. Highs in the mid 60s.
+Saturday... Mostly cloudy. Highs in the mid 60s.
+Sunday... Partly cloudy. Highs in the mid 60s.
+Monday... Mostly cloudy. Highs in the mid 60s.
+Tuesday... Mostly cloudy. Highs in the mid 60s.
+Wednesday... Partly cloudy. Highs in the mid 60s.
+Thursday... Mostly cloudy. Highs in the mid 60s.
+Friday... Mostly cloudy. Highs in the mid 60s.
+Saturday... Mostly cloudy. Highs in the mid 60s.
+Sunday... Partly cloudy. Highs in the mid 60s.
+Monday... Mostly cloudy. Highs in the mid 60s.
+Tuesday... Mostly cloudy. Highs in the mid 60s.
+Wednesday... Mostly cloudy. Highs in the mid 60s.
+Thursday... Mostly cloudy. High
+target_str: 1, 9, 15, 11, 5, 5, -4, 6, -14, 95
+mse: 0.03991533423510872
+----------------------
+pred_str: -15, -18, -23, -20, -18, -21, -21, -19, -20, -20
+target_str: -12, -18, -20, -13, -17, -15, -15, -20, -12, -14
+mse: 0.0003377926914386835
+----------------------
+pred_str: -12, -16, -23, -15, -21, -14, -16, -15, -14
+target_str: -12, -2, -8, 0, 4, 8, 16, 18, 50, 60
+mse: 0.007897929765125624
+----------------------
+pred_str: -16, -17, -17, -16, -15, -16, -15, -15, -15, -14
+
+Weather for the day in Plymouth
+Monday Night Forecast for Plymouth
+Mostly sunny. Highs in the upper 40s. North winds 5 to 10 mph.
+Mostly cloudy. Highs in the upper 30s. North winds around 5 mph.
+Sunny. Highs in the mid 40s. North winds around 5 mph.
+Mostly cloudy. Highs in the upper 40s. North winds around 5 mph.
+Mostly cloudy. Highs in the upper 40s. North winds around 5 mph.
+Sunny. Highs in the upper 40s. North winds around 5 mph.
+Mostly cloudy. Highs in the mid 40s. North winds around 5 mph.
+Partly cloudy. Highs in the upper 40s. North winds around 5 mph.
+Partly cloudy. Highs in the mid 40s. North winds around 5 mph.
+Partly cloudy. Highs in the mid 40s. North winds around 5 mph.
+Partly cloudy. Highs in the upper 40s. North winds around 5 mph.
+Mostly cloudy. Highs in the upper 40s. North winds around 5 mph.
+Partly cloudy. Highs in the mid 40s. North winds around 5 mph.
+Mostly cloudy. Highs in the upper 40s. North winds around 5 mph.
+Partly cloudy. Highs in the upper 40s. North winds around 5 mph.
+Partly cloudy. Highs in the upper 40s. North winds around 5 mph.
+Partly cloudy. Highs in the upper 40s. North winds around 5 mph.
+Partly cloudy. Highs in the upper 40s. North wind
+target_str: 12, 18, 30, 37, 39, 26, -1, -14, -9, -15
+mse: 0.028267666096001103
+----------------------
+pred_str: -10, -16, -19, -16, -16, -15, -13, -13, -12, -13, -12, -12
+
+
+
+target_str: -4, -2, -1, -2, -2, -4, -2, -3, 0, 0
+mse: 0.004974920870979905
+----------------------
+pred_str: -11, -10, -9, -7, -7, -9, -8, -10, -7, -10, -8, -10
+
+A cold front has moved through the Midland, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, Goshen, and Westerly, G
+target_str: -4, 0, 2, 16, 23, 21, 3, -4, -11, -14
+mse: 0.008246005710775531
+----------------------
+pred_str: 100, -36, -31, 0, 0, -2, 1, 1, 1, 1, 1
+
+A cold front is expected to move away from the area later today.
+Temperatures will be below freezing for the remainder of the work week.
+target_str: 57, 62, 36, 3, -11, -20, -22, -16, -19, -17
+mse: 0.02525103665236513
+----------------------
+pred_str: -14, -14, -14, -14, -14, -14, -14, -14, -14, -14
+target_str: -23, -4, -15, -10, -9, -3, 2, -2, 5, 20
+mse: 0.00929992275260684
+----------------------
+pred_str: -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10
+
+An upper level of the Chinook is 57. Today's forecast:
+-10, -10, -10, -10, -10, -10, -10, -10, -10
+-10, -10, -10, -10, -10, -10, -10, -10
+-10, -10, -10, -10, -10, -10, -10, -10
+-10, -10, -10, -10, -10, -10, -10, -10
+-10, -10, -10, -10, -10, -10, -10, -10
+-10, -10, -10, -10, -10, -10, -10, -10
+-10, -10, -10, -10, -10, -10, -10
+-10, -10, -10, -10, -10, -10, -10
+-10, -10, -10, -10, -10, -10, -10
+-10, -10, -10, -10, -10, -10, -10, -10
+-10, -10, -10, -10, -10, -10, -10, -10
+-10, -10, -10, -10, -10, -10, -10, -10
+-10, -10, -10, -10, -10, -10, -10, -10
+-10, -10, -10, -10, -10, -10, -10, -10
+-10, -10
+target_str: 33, 24, 5, -5, -6, -8, -7, -6, -3, -1
+mse: 0.007496537777050461
+----------------------
+pred_str: -1, -10, -10, -9, -9, -9, -9, -9, -9, -9, -8, -8
+-1, -11, -11, -11, -11, -11, -11, -11, -11, -11
+target_str: -5, -7, -6, -6, -12, -4, -6, -8, -7, -4
+mse: 0.0005714198203939817
+----------------------
+pred_str: -4, -29, -34, -17, -18, -12, 23, 11, -17, 0
+
+Saturday, December 18, 2021 4:00 AM EST
+Partly cloudy with a few snow showers in the morning. Then a mix of rain and snow in the afternoon. High near 37F. Wind chill expected to be near 24F.
+Saturday, December 18, 2021 4:00 AM EST
+target_str: 5, 33, 48, 87, 52, 17, -5, -6, -4, -25
+mse: 0.015481507958851578
+----------------------
+pred_str: -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
+target_str: -1, -7, -8, -8, -9, -9, -8, -8, -8, -8
+mse: 0.006967472203901669
+----------------------
+pred_str: 31, 57, 75, 93, 101, 100, 67, 21, 2, 0, 10
+target_str: -10, -6, -13, -6, 14, 114, -24, -51, -12, -20
+mse: 0.05447291584022039
+----------------------
+pred_str: -15, -15, -15, -15, -15, -15, -15, -15, -15, -15, -15
+
+<200 W/SW: 60000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+target_str: -9, -10, -11, -13, -10, -6, -2, -13, -12, -17
+mse: 0.002875780918348536
+----------------------
+pred_str: -2, -1, -2, -2, -2, -3, -2, -1, 0, -2, -2, -2
+
+a 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+target_str: -7, -8, -9, -6, -14, -8, -5, -3, -2, -13
+mse: 0.0011074563925597587
+----------------------
+pred_str: -16, -13, -13, -13, -13, -12, -12, -12, -12, -12, -12
+
+A cold front has moved through the 1000 foot level...low clouds and fog.
+This is the official NWSA forecast for the northern Plains and Mountains Region.
+target_str: -4, -1, -4, -6, -1, 2, 14, 9, 26, 37
+mse: 0.016430792604161117
+----------------------
+pred_str: -10, -7, -7, -11, -14, -23, -34, -66, -11, -6, -15, -10, -10,
+A few showers are possible early Thursday morning
+Snow showers are expected to end early this morning.
+Snow showers will be heavy at times.
+Snow showers will be heavy at times through the day.
+target_str: -1, -5, -7, -8, -5, -10, 87, 40, -13, -1
+mse: 0.2786962222735665
+----------------------
+pred_str: -1, -1, -4, -5, -4, -6, -5, -6, -6, -6, -6, -7
+
+Cloudy with a few snow showers in the morning.
+target_str: -6, -6, -7, -5, -7, -7, -7, -6, -9, -7
+mse: 0.0005713780816302646
+----------------------
+pred_str: -3, -15, -24, -31, -38, -45, -51, -47, -38, -26
+
+Weather for Saturday, July 20, 2019
+...and the wind is from the northwest at 10 mph. The dewpoint is 64 F
+The dewpoint is 64 F (Feels like 64)
+Mostly sunny with a few afternoon clouds. Highest temperatures in the upper 70s. Lowest temperatures in the mid 60s.
+A chance of showers. Scattered thunderstorms. Highest temperatures in the upper 70s. Lowest temperatures in the mid 60s.
+Mostly sunny with a few afternoon clouds. Highest temperatures in the mid 70s. Lowest temperatures in the mid 60s.
+Mostly sunny with a few afternoon clouds. Highest temperatures in the upper 70s. Lowest temperatures in the mid 60s.
+Mostly sunny with a few afternoon clouds. Highest temperatures in the upper 70s. Lowest temperatures in the mid 60s.
+...and the wind is from the northwest at 10 mph. The dewpoint is 64 F (Feels like 64)
+...and the wind is from the northwest at 10 mph. The dewpoint is 64 F (Feels like 64)
+...and the wind is from the northwest at 10 mph. The dewpoint is 64 F (Feels like 64)
+...and the wind is from the northwest at 10 mph. The dewpoint is 64 F (Feels like 64)
+...and the wind is from the northwest at 10 mph. The dewpoint is 64 F (Feels like 64)
+...and the wind is from the northwest at 10 mph. The dewpoint is 64 F (Feels like 64)
+...and the wind is from the northwest at 10 mph. The dewpoint is 64
+target_str: -12, -9, -14, -18, -12, 8, -14, -19, -22, -22
+mse: 0.006240252337529851
+----------------------
+pred_str: -13, -14, -15, -14, -15, -16, -15, -16, -17, -19
+
+target_str: -5, -8, -8, -6, -7, -5, -4, -6, -6, -8
+mse: 0.00348138364773866
+----------------------
+pred_str: -5, -5, -5, -5, -6, -4, -5, -7, -4, -5, -7
+target_str: 4, 15, 23, 20, 20, 8, 0, -8, -12, -10
+mse: 0.012190490427574575
+----------------------
+pred_str: -3, -11, -14, -14, -13, -12, -12, -12, -11, -12, -12, -12, -12, -12
+
+<213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 213> 
+target_str: 7, -1, -1, 2, -12, -22, -23, -29, -20, -22
+mse: 0.004385442266785185
+----------------------
+pred_str: -10, 14, 23, 33, 25, 1, -3, -3, -2, -3, -4, -4, -6, -10
+target_str: -6, -6, -1, 2, -1, -5, -10, -5, -12, -1
+mse: 0.014749539976750808
+----------------------

@@ -3,17 +3,11 @@ import csv
 import numpy as np
 
 def initialize_files(folder, text, label, train_length = 100, test_length = 50, eval_length = 50, pred_len = 50):
-    """
-    Initialize output CSV files and populate them with data from .npy files.
-
-    This function creates three CSV files for evaluation, testing, and training data.
-    Each CSV file contains rows with 'corrupted ecg' and 'gt values' columns.
-    The 'corrupted ecg' column contains 1-dimensional arrays extracted from .npy files,
-    and the 'gt values' column contains corresponding ground truth values.
-    """
     output_csv_file = ["./benchmark/train.csv", "./benchmark/test.csv", "./benchmark/eval.csv"]
     start = [201, 0, 101]
     end = [200+train_length, test_length - 1, 100 + eval_length]
+
+    max_vals = []
     
     npy_folder = folder
     # List all .npy files in the specified directory
@@ -46,6 +40,9 @@ def initialize_files(folder, text, label, train_length = 100, test_length = 50, 
                         continue
 
                     max_val = max(abs(array))
+                    if (i == 1):
+                        max_vals.append(max_val)
+                    
                     array = [(x * 100.00) / max_val for x in array]
                     
                     array_str =[]
@@ -70,7 +67,4 @@ def initialize_files(folder, text, label, train_length = 100, test_length = 50, 
                     # break 
 
     print(f"All 1-dimensional arrays have been saved to {output_csv_file}.")
-    return max_val
-
-
-initialize_files("./benchmark/ppg-imputation","corrupted", "gt")
+    return max_vals

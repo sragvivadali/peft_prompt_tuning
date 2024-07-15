@@ -1,0 +1,371 @@
+[2024-07-04 15:40:00,878] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+All 1-dimensional arrays have been saved to ['./benchmark/train.csv', './benchmark/test.csv', './benchmark/eval.csv'].
+[2024-07-04 15:40:04,559] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.2
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[2024-07-04 15:40:05,120] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-07-04 15:40:05,120] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+All 1-dimensional arrays have been saved to ['./benchmark/train.csv', './benchmark/test.csv', './benchmark/eval.csv'].
+max_vals [0.4657017531985316, 91.41004782265443, 1.0245983448237093, 154.72178554216515, 86.97451584571705, 1.2677365602192732, 4.007556317730205, 125.1331162831952, 101.52395590678962, 154.60214821388624, 0.6877932058056621, 0.4322805879052608, 92.79814745305815, 223.62932948950453, 39.40073843988686, 143.8768152860681, 1.5189687410043196, 261.0921159996241, 1.2285575361135035, 84.48096819731116, 1.3270199072442206, 4.032283656964537, 0.9033504344950996, 1.5774595060334473, 1.285815724364146, 0.8944803367589264, 1.2920253245045676, 2.5386574754056745, 71.3028563089283, 3.53249676378062, 0.6737447711788919, 3.5567151713401364, 1.922324078003516, 116.84188044500092, 106.5954546130022, 3.429755126072989, 4.068457836958549, 1.6333645923663662, 3.0789129706521985, 0.5417774861328145, 0.4095369217376126, 138.5283982537536, 314.77984751280553, 55.41006693244366, 87.96129888340634, 0.6601381560088779, 1.4304087818148197, 1.7578727664155078, 4.069879745437377, 1.0657992415411246]
+trainable params: 32,768 || all params: 6,738,448,384 || trainable%: 0.0004862840543203603
+[2024-07-04 15:40:12,288] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.14.1, git-hash=unknown, git-branch=unknown
+[2024-07-04 15:40:12,508] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2024-07-04 15:40:12,509] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2024-07-04 15:40:12,509] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2024-07-04 15:40:12,518] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW
+[2024-07-04 15:40:12,518] [INFO] [utils.py:56:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW type=<class 'torch.optim.adamw.AdamW'>
+[2024-07-04 15:40:12,518] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.float16 ZeRO stage 2 optimizer
+[2024-07-04 15:40:12,519] [INFO] [stage_1_and_2.py:148:__init__] Reduce bucket size 500,000,000
+[2024-07-04 15:40:12,519] [INFO] [stage_1_and_2.py:149:__init__] Allgather bucket size 500,000,000
+[2024-07-04 15:40:12,519] [INFO] [stage_1_and_2.py:150:__init__] CPU Offload: False
+[2024-07-04 15:40:12,519] [INFO] [stage_1_and_2.py:151:__init__] Round robin gradient partitioning: False
+[2024-07-04 15:40:12,665] [INFO] [utils.py:772:see_memory_usage] Before initializing optimizer states
+[2024-07-04 15:40:12,666] [INFO] [utils.py:773:see_memory_usage] MA 12.61 GB         Max_MA 12.61 GB         CA 12.86 GB         Max_CA 13 GB 
+[2024-07-04 15:40:12,666] [INFO] [utils.py:780:see_memory_usage] CPU Virtual Memory:  used = 7.2 GB, percent = 5.7%
+[2024-07-04 15:40:12,798] [INFO] [utils.py:772:see_memory_usage] After initializing optimizer states
+[2024-07-04 15:40:12,798] [INFO] [utils.py:773:see_memory_usage] MA 12.61 GB         Max_MA 12.61 GB         CA 12.86 GB         Max_CA 13 GB 
+[2024-07-04 15:40:12,798] [INFO] [utils.py:780:see_memory_usage] CPU Virtual Memory:  used = 7.2 GB, percent = 5.7%
+[2024-07-04 15:40:12,799] [INFO] [stage_1_and_2.py:543:__init__] optimizer state initialized
+[2024-07-04 15:40:12,929] [INFO] [utils.py:772:see_memory_usage] After initializing ZeRO optimizer
+[2024-07-04 15:40:12,930] [INFO] [utils.py:773:see_memory_usage] MA 12.61 GB         Max_MA 12.61 GB         CA 12.86 GB         Max_CA 13 GB 
+[2024-07-04 15:40:12,930] [INFO] [utils.py:780:see_memory_usage] CPU Virtual Memory:  used = 7.2 GB, percent = 5.7%
+[2024-07-04 15:40:12,930] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = AdamW
+[2024-07-04 15:40:12,930] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2024-07-04 15:40:12,930] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2024-07-04 15:40:12,930] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[0.03], mom=[(0.9, 0.999)]
+[2024-07-04 15:40:12,931] [INFO] [config.py:996:print] DeepSpeedEngine configuration:
+[2024-07-04 15:40:12,931] [INFO] [config.py:1000:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2024-07-04 15:40:12,931] [INFO] [config.py:1000:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2024-07-04 15:40:12,931] [INFO] [config.py:1000:print]   amp_enabled .................. False
+[2024-07-04 15:40:12,931] [INFO] [config.py:1000:print]   amp_params ................... False
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   bfloat16_enabled ............. False
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   bfloat16_immediate_grad_update  False
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   checkpoint_parallel_write_pipeline  False
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   checkpoint_tag_validation_enabled  True
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   checkpoint_tag_validation_fail  False
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7f7fcda22030>
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   communication_data_type ...... None
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   compile_config ............... enabled=False backend='inductor' kwargs={}
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   curriculum_enabled_legacy .... False
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   curriculum_params_legacy ..... False
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   data_efficiency_enabled ...... False
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   dataloader_drop_last ......... False
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   disable_allgather ............ False
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   dump_state ................... False
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   dynamic_loss_scale_args ...... None
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   eigenvalue_enabled ........... False
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   eigenvalue_gas_boundary_resolution  1
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   eigenvalue_layer_num ......... 0
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   eigenvalue_max_iter .......... 100
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   eigenvalue_stability ......... 1e-06
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   eigenvalue_tol ............... 0.01
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   eigenvalue_verbose ........... False
+[2024-07-04 15:40:12,932] [INFO] [config.py:1000:print]   elasticity_enabled ........... False
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   fp16_auto_cast ............... True
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   fp16_enabled ................. True
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   fp16_master_weights_and_gradients  False
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   global_rank .................. 0
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   grad_accum_dtype ............. None
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   gradient_accumulation_steps .. 1
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   gradient_clipping ............ 0.0
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   gradient_predivide_factor .... 1.0
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   graph_harvesting ............. False
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   initial_dynamic_scale ........ 65536
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   load_universal_checkpoint .... False
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   loss_scale ................... 0
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   memory_breakdown ............. False
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   mics_hierarchial_params_gather  False
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   mics_shard_size .............. -1
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   optimizer_legacy_fusion ...... False
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   optimizer_name ............... None
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   optimizer_params ............. None
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   pld_enabled .................. False
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   pld_params ................... False
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   prescale_gradients ........... False
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   scheduler_name ............... None
+[2024-07-04 15:40:12,933] [INFO] [config.py:1000:print]   scheduler_params ............. None
+[2024-07-04 15:40:12,934] [INFO] [config.py:1000:print]   seq_parallel_communication_data_type  torch.float32
+[2024-07-04 15:40:12,934] [INFO] [config.py:1000:print]   sparse_attention ............. None
+[2024-07-04 15:40:12,934] [INFO] [config.py:1000:print]   sparse_gradients_enabled ..... False
+[2024-07-04 15:40:12,934] [INFO] [config.py:1000:print]   steps_per_print .............. inf
+[2024-07-04 15:40:12,934] [INFO] [config.py:1000:print]   train_batch_size ............. 2
+[2024-07-04 15:40:12,934] [INFO] [config.py:1000:print]   train_micro_batch_size_per_gpu  2
+[2024-07-04 15:40:12,934] [INFO] [config.py:1000:print]   use_data_before_expert_parallel_  False
+[2024-07-04 15:40:12,934] [INFO] [config.py:1000:print]   use_node_local_storage ....... False
+[2024-07-04 15:40:12,934] [INFO] [config.py:1000:print]   wall_clock_breakdown ......... False
+[2024-07-04 15:40:12,934] [INFO] [config.py:1000:print]   weight_quantization_config ... None
+[2024-07-04 15:40:12,934] [INFO] [config.py:1000:print]   world_size ................... 1
+[2024-07-04 15:40:12,934] [INFO] [config.py:1000:print]   zero_allow_untested_optimizer  True
+[2024-07-04 15:40:12,934] [INFO] [config.py:1000:print]   zero_config .................. stage=2 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500,000,000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=False load_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='cpu', nvme_path=None, buffer_count=5, buffer_size=100,000,000, max_in_cpu=1,000,000,000, pin_memory=False) offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='none', nvme_path=None, buffer_count=4, pin_memory=False, pipeline=False, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2024-07-04 15:40:12,934] [INFO] [config.py:1000:print]   zero_enabled ................. True
+[2024-07-04 15:40:12,934] [INFO] [config.py:1000:print]   zero_force_ds_cpu_optimizer .. True
+[2024-07-04 15:40:12,934] [INFO] [config.py:1000:print]   zero_optimization_stage ...... 2
+[2024-07-04 15:40:12,934] [INFO] [config.py:986:print_user_config]   json = {
+    "train_batch_size": 2, 
+    "train_micro_batch_size_per_gpu": 2, 
+    "gradient_accumulation_steps": 1, 
+    "zero_optimization": {
+        "stage": 2, 
+        "offload_optimizer": {
+            "device": "none", 
+            "nvme_path": null
+        }, 
+        "offload_param": {
+            "device": "cpu", 
+            "nvme_path": null
+        }, 
+        "stage3_gather_16bit_weights_on_model_save": false
+    }, 
+    "steps_per_print": inf, 
+    "fp16": {
+        "enabled": true, 
+        "auto_cast": true
+    }, 
+    "bf16": {
+        "enabled": false
+    }, 
+    "zero_allow_untested_optimizer": true
+}
+[2024-07-04 15:40:13,865] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 4294967296, reducing to 2147483648
+[2024-07-04 15:40:14,600] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 2147483648, reducing to 1073741824
+[2024-07-04 15:40:15,340] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 1073741824, reducing to 536870912
+[2024-07-04 15:40:16,079] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 536870912, reducing to 268435456
+[2024-07-04 15:40:16,820] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 268435456, reducing to 134217728
+[2024-07-04 15:40:17,561] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 134217728, reducing to 67108864
+[2024-07-04 15:40:18,302] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 67108864, reducing to 33554432
+[2024-07-04 15:40:19,043] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 33554432, reducing to 16777216
+[2024-07-04 15:40:19,786] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 16777216, reducing to 8388608
+[2024-07-04 15:40:20,542] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 8388608, reducing to 4194304
+[2024-07-04 15:40:21,297] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 4194304, reducing to 2097152
+[2024-07-04 15:40:22,054] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 2097152, reducing to 1048576
+[2024-07-04 15:40:22,811] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 1048576, reducing to 524288
+[2024-07-04 15:40:23,568] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 524288, reducing to 262144
+[2024-07-04 15:40:25,121] [INFO] [loss_scaler.py:183:update_scale] [deepspeed] OVERFLOW! Rank 0 Skipping step. Attempted loss scale: 262144, reducing to 131072
+epoch=0: train_ppl=tensor(2.4541, device='cuda:0') train_epoch_loss=tensor(0.8978, device='cuda:0') eval_ppl=tensor(2.2517, device='cuda:0') eval_epoch_loss=tensor(0.8117, device='cuda:0')
+epoch=1: train_ppl=tensor(2.1785, device='cuda:0') train_epoch_loss=tensor(0.7786, device='cuda:0') eval_ppl=tensor(2.1653, device='cuda:0') eval_epoch_loss=tensor(0.7725, device='cuda:0')
+epoch=2: train_ppl=tensor(2.1270, device='cuda:0') train_epoch_loss=tensor(0.7547, device='cuda:0') eval_ppl=tensor(2.1376, device='cuda:0') eval_epoch_loss=tensor(0.7597, device='cuda:0')
+epoch=3: train_ppl=tensor(2.0791, device='cuda:0') train_epoch_loss=tensor(0.7320, device='cuda:0') eval_ppl=tensor(2.1083, device='cuda:0') eval_epoch_loss=tensor(0.7459, device='cuda:0')
+epoch=4: train_ppl=tensor(2.0392, device='cuda:0') train_epoch_loss=tensor(0.7125, device='cuda:0') eval_ppl=tensor(2.1308, device='cuda:0') eval_epoch_loss=tensor(0.7565, device='cuda:0')
+epoch=5: train_ppl=tensor(2.0108, device='cuda:0') train_epoch_loss=tensor(0.6985, device='cuda:0') eval_ppl=tensor(2.1424, device='cuda:0') eval_epoch_loss=tensor(0.7619, device='cuda:0')
+epoch=6: train_ppl=tensor(1.9858, device='cuda:0') train_epoch_loss=tensor(0.6860, device='cuda:0') eval_ppl=tensor(2.1513, device='cuda:0') eval_epoch_loss=tensor(0.7661, device='cuda:0')
+epoch=7: train_ppl=tensor(1.9633, device='cuda:0') train_epoch_loss=tensor(0.6746, device='cuda:0') eval_ppl=tensor(2.1721, device='cuda:0') eval_epoch_loss=tensor(0.7757, device='cuda:0')
+epoch=8: train_ppl=tensor(1.9404, device='cuda:0') train_epoch_loss=tensor(0.6629, device='cuda:0') eval_ppl=tensor(2.1912, device='cuda:0') eval_epoch_loss=tensor(0.7844, device='cuda:0')
+epoch=9: train_ppl=tensor(1.9147, device='cuda:0') train_epoch_loss=tensor(0.6496, device='cuda:0') eval_ppl=tensor(2.1968, device='cuda:0') eval_epoch_loss=tensor(0.7870, device='cuda:0')
+pred_str:  14, 21, 24, 24, 26, 26, 30, 31, 32, 32, 30, 27, 21, 18, 19, 22, 31, 41, 47, 51, 47, 41, 30, 17, 14, 15, 15, 15, 17, 19, 18, 17, 18, 18, 17, 15, 11, 10, 11, 13, 13, 12, 14, 15, 16, 14, 10, 7, 4, 2, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
+target_str:  8, 6, 7, 7, 5, 1, -5, -5, -2, 0, 5, 13, 20, 23, 30, 37, 43, 49, 56, 66, 69, 72, 73, 75, 73, 73, 75, 75, 74, 76, 74, 70, 69, 68, 67, 69, 71, 73, 74, 74, 71, 69, 70, 69, 71, 74, 72, 70, 71, 70
+MSE:  0.044872517390915155
+pred_str:  -8, -8, -8, -7, -7, -6, -7, -7, -6, -4, -1, 1, 5, 11, 18, 23, 22, 18, 11, 6, 2, 3, 8, 13, 16, 18, 18, 14, 8, 1, -6, -10, -11, -10, -9, -8, -7, -7, -7, -7, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -6, -5, -4, -4, -3, -2, -1, 0, 1, 3, 5, 7, 8, 8, 8, 7, 6, 5, 5, 6, 7, 8, 9, 9, 9, 9, 9, 8, 7, 6, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 2, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
+target_str:  -6, -3, 0, 1, 1, -1, -5, -10, -15, -21, -28, -34, -40, -41, -40, -35, -29, -24, -18, -16, -14, -10, -2, 9, 22, 29, 31, 29, 20, 13, 4, -1, -5, -6, -3, 0, 6, 10, 14, 15, 13, 8, 2, -1, -7, -13, -18, -22, -24, -24
+MSE:  410.6038568620702
+pred_str:  -45, -44, -43, -40, -44, -39, -34, -33, -29, -33, -40, -52, -76, -85, -8, 46, 16, -4, 23, 17, 12, 20, 29, 37, 39, 39, 46, 74, 92, 83, 54, 40, 40, 0, -24, -34, -41, -45, -48, -48, -48, -46, -40, -37, -34, -38, -42, -52, -77, -88, -25, 48, 18, -5, 16, 19, 13, 21, 29, 37, 38, 43, 70, 89, 86, 61, 43, 42, 0
+target_str:  -51, -57, -57, -60, -74, -69, 6, 76, 15, -2, 23, 30, 18, 13, 23, 40, 47, 45, 43, 55, 85, 104, 87, 52, 45, 56, 24, -12, -15, -23, -34, -49, -58, -61, -54, -49, -47, -47, -46, -53, -79, -91, -52, 71, 74, 12, 35, 46, 34, 16
+MSE:  0.41780220731793505
+pred_str:  37, 27, 14, -1, 26, 53, 74, 87, 89, 80, 56, 26, 2, -13, -31, -48, -57, -57, -53, -40, -22, -4, 10, 16, 13, 11, 8, 9, 13, 17, 18, 18, 17, 11, 2, -22, -55, -79, -95, -95, -86, -68, -40, -16, -1, 21, 38, 48, 45, 30, -10, -56, -86, -104, -105, -97, -79, -56, -29, -10, 2, 10, 9, 8, 5, 3, 4, 7, 11, 13, 13, 12, 7, 1, -18, -43, -65, -81, -85, -80, -64, -38, -18, -4, 20, 36, 42, 39, 26, -8, -58, -89, -108, -112, -105, -85, -56, -17
+target_str:  38, 29, 20, 13, 4, -3, -12, -19, -24, -25, -19, -7, 7, 23, 34, 42, 45, 45, 43, 39, 32, 23, 9, -7, -29, -50, -69, -82, -86, -83, -73, -59, -42, -22, -2, 13, 25, 36, 45, 52, 58, 60, 60, 55, 45, 33, 18, 4, -6, -15
+MSE:  13827.882660426401
+pred_str:  -52, -55, -58, -58, -51, -35, -14, 2, 24, 43, 60, 70, 71, 65, 52, 34, 14, 2, -11, -21, -28, -30, -30, -25, -19, -12, -4, 1, 12, 26, 38, 43, 39, 29, 17, 3, -14, -29, -39, -46, -51, -54, -55, -51, -37, -15, 0, 18, 34, 50, 62, 70, 70, 63, 50, 32, 14, 1, -7, -16, -20, -21, -21, -18, -13, -6, 0, 7, 17, 32, 47, 57, 61, 58, 50, 34, 16, 0, -11, -25, -35
+target_str:  -52, -53, -51, -51, -51, -50, -51, -45, -29, -10, 7, 21, 23, 17, 4, -13, -30, -47, -57, -63, -64, -62, -53, -43, -33, -22, -15, -8, 2, 14, 29, 41, 48, 51, 53, 49, 44, 39, 32, 25, 21, 17, 12, 7, 0, -7, -14, -17, -9, 8
+MSE:  1250.619505737037
+pred_str:  -28, -35, -35, -24, -12, -2, 14, 23, 15, 4, 17, 21, 20, 18, 17, 16, 17, 17, 16, 15, 15, 16, 15, 15, 15, 15, 14, 13, 13, 12, 12, 14, 15, 14, 13, 11, 10, 11, 11, 12, 14, 15, 15, 14, 13, 13, 14, 14, 14, 13, 12, 11, 11, 11, 10, 10, 10, 10, 9, 9, 11, 12, 12, 12, 13, 13, 12, 12, 11, 11, 11, 12, 13, 14, 14, 14, 14, 13, 13, 14, 14, 14, 14, 14, 14, 13, 12, 11, 11, 11, 10, 10, 10, 10, 10
+target_str:  -26, -44, -64, -80, -85, -68, -60, -54, -43, -40, -19, 15, 30, 17, 11, 10, 4, 1, -13, -37, -48, -59, -73, -70, -57, -48, -35, -28, -15, 28, 46, 25, 8, 8, 18, 14, -1, -17, -29, -32, -30, -20, -8, -8, -8, -7, -8, 13, 19, 5
+MSE:  0.2770447631987508
+pred_str:  8, 8, 9, 13, 34, 68, 88, 68, 40, 23, 14, 8, 4, 2, 0, -1, -5, -9, -13, -16, -17, -15, -6, 4, 31, 62, 83, 65, 39, 24, 14, 8, 4, 3, 3, 3, 3, 3, 3, 6, 18, 52, 81, 67, 39, 23, 14, 9, 5, 3, 2, 0, -1, -3, -7, -11, -15, -17, -15, -6, 2, 29, 57, 77, 60, 34, 19, 12, 8, 5, 4, 4, 3, 2, 2, 3, 3, 3, 4, 10, 33, 64, 80, 61, 33, 16, 9, 5
+target_str:  5, 3, 2, 10, 31, 73, 101, 83, 46, 22, 10, 2, -1, -4, -7, -11, -14, -15, -11, -3, 17, 54, 81, 78, 50, 29, 15, 8, 3, 1, 0, 1, 1, 1, 2, 9, 30, 68, 99, 88, 50, 25, 12, 5, 1, -2, -6, -10, -14, -16
+MSE:  2.130201491309764
+pred_str:  4, 12, 21, 28, 33, 36, 38, 37, 34, 31, 28, 24, 19, 13, 3, -11, -26, -34, -35, -23, -7, 10, 19, 18, 2, -15, -28, -33, -30, -17, -1, 9, 16, 15, 1, -15, -30, -36, -35, -22, -9, 3, 16, 22, 24, 23, 23, 23, 24, 24, 24, 23, 22, 19, 13, 2, -9, -22, -27, -24, -9, 2, 13, 15, 14, 1, -14, -27, -31, -28, -10, 1, 10, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14
+target_str:  5, 24, 41, 54, 61, 67, 64, 45, 19, -9, -33, -48, -51, -48, -44, -44, -48, -50, -40, -19, 8, 34, 44, 35, 8, -20, -31, -19, 3, 25, 36, 32, 17, -2, -20, -29, -30, -23, -8, 11, 33, 52, 65, 73, 77, 71, 53, 33, 11, -6
+MSE:  1663.881933578002
+pred_str:  -35, -33, -25, -16, -14, -14, -11, -5, 1, 14, 21, 27, 29, 31, 31, 31, 30, 24, 15, 2, -11, -27, -40, -47, -49, -39, -20, 1, 22, 45, 69, 82, 77, 62, 41, 19, -6, -23, -35, -38, -32, -23, -14, -5, 4, 16, 28, 37, 39, 39, 38, 35, 30, 17, 3, -13, -31, -47, -55, -58, -52, -33, -11, 6, 25, 45, 58, 61, 62, 59, 49, 33, 17, 0, -14, -28, -34, -32, -26, -17, -8, 2, 12, 20, 23, 23, 22, 21, 18, 13, 6, -3, -13, -22, -29, -34
+target_str:  -42, -53, -62, -57, -39, -12, 21, 51, 73, 85, 90, 89, 88, 83, 66, 39, 6, -28, -62, -92, -109, -104, -80, -39, 7, 61, 106, 130, 129, 109, 75, 39, 5, -24, -45, -56, -59, -60, -57, -43, -19, 6, 30, 49, 62, 74, 86, 97, 102, 98
+MSE:  3921.011550220628
+pred_str:  81, 94, 99, 93, 82, 62, 40, 17, -3, -23, -46, -61, -68, -67, -60, -51, -40, -27, -13, -2, 5, 15, 27, 40, 53, 71, 92, 103, 105, 101, 88, 69, 49, 25, 0, -28, -57, -78, -87, -84, -76, -64, -50, -35, -21, -12, 1, 18, 38, 60, 83, 109, 127, 127, 120, 102, 74, 44, 18, -4, -27, -48, -59, -64, -61, -51, -39, -23, -10, -1, 9, 22, 39, 59, 78, 84, 74, 56, 36, 16, 1, -18, -37, -52, -65, -70
+target_str:  79, 91, 93, 83, 64, 40, 15, -6, -24, -38, -49, -56, -58, -54, -49, -41, -33, -25, -16, -7, 6, 29, 61, 94, 118, 130, 127, 109, 80, 45, 12, -15, -38, -55, -66, -71, -70, -62, -52, -43, -34, -28, -22, -17, -9, 8, 40, 76, 108, 127
+MSE:  3619.1186179652723
+pred_str:  -1, 11, 50, 53, 55, 44, 46, 57, 73, 81, 76, 57, 39, 13, -31, -61, -10, -33, -54, -61, -58, -48, -44, -49, -61, -72, -81, -79, -59, -35, -25, -53, -13, 31, 23, 1, -13, -18, -4, 18, 32, 32, 20, 12, 6, 21, 43, 46, 40, 33, 36, 46, 57, 56, 40, 15, -49, -68, -20, -52, -63, -64, -57, -53, -50, -56, -63, -72, -79, -81, -74, -59, -40, -36, -75, -119, -59, 23, 22, 1, -11, -15, -12, 3, 20
+target_str:  23, 36, 65, 76, 68, 45, 27, 13, -47, -57, -43, -75, -76, -78, -66, -61, -64, -72, -85, -94, -100, -94, -74, -51, -36, -71, -72, -7, 18, 42, 11, 5, 17, 36, 51, 45, 42, 53, 67, 79, 76, 65, 37, 0, -49, -92, -51, -56, -92, -97
+MSE:  0.20734292231833787
+pred_str:  -24, -24, -25, -28, -29, -26, -21, -15, -9, -5, -2, 1, 4, 11, 19, 26, 33, 34, 33, 30, 26, 21, 13, 0, -11, -21, -28, -35, -41, -47, -55, -63, -66, -65, -60, -56, -50, -41, -34, -29, -24, -19, -16, -19, -28, -37, -49, -56, -59, -58, -52, -43, -32, -24, -19, -13, -8, -3, 1, 6, 12, 18, 25, 30, 31, 31, 30, 26, 20, 13, 0, -11, -21, -27, -31, -36, -40, -44, -50, -55, -62, -63, -61, -55, -47, -37, -29, -23, -18, -15, -19, -30
+target_str:  -20, -21, -28, -41, -50, -59, -70, -77, -78, -75, -73, -66, -64, -71, -79, -84, -75, -50, -28, -24, -19, -13, -15, -26, -33, -38, -50, -52, -53, -58, -60, -56, -51, -40, -24, -8, 10, 10, 0, -2, -19, -50, -99, -144, -198, -233, -234, -216, -190, -155
+MSE:  0.10533702354837034
+pred_str:  -43, -28, -7, 24, 62, 93, 112, 109, 93, 70, 40, 11, -21, -49, -69, -78, -84, -82, -74, -59, -31, -5, 26, 63, 93, 107, 103, 85, 57, 30, 9, -23, -51, -69, -78, -76, -67, -49, -20, 2, 54, 89, 109, 106, 90, 64, 39, 15, -23, -53, -73, -84, -88, -84, -72, -47, -13, 13, 60, 93, 113, 108, 87, 58, 31, 7, -19, -37, -48, -55, -58, -57, -52, -37, -11, 10, 44, 78, 97, 97, 81, 51, 21, 1, -15, -31, -43, -50, -57
+target_str:  -44, -39, -28, -6, 24, 58, 85, 99, 100, 88, 69, 44, 17, -7, -30, -47, -59, -66, -67, -67, -61, -54, -36, -6, 28, 60, 77, 82, 74, 59, 38, 12, -11, -32, -47, -60, -68, -71, -71, -69, -62, -50, -30, 2, 43, 81, 109, 123, 121, 107
+MSE:  3044.9217080123744
+pred_str:  -31, -32, -31, -28, -24, -17, -8, 2, 21, 40, 53, 60, 62, 60, 54, 46, 35, 24, 13, 3, -4, -11, -18, -23, -27, -31, -33, -33, -32, -31, -30, -29, -28, -25, -19, -6, 11, 33, 53, 68, 75, 73, 66, 57, 47, 36, 25, 14, 2, -4, -13, -22, -29, -34, -38, -42, -44, -45, -45, -43, -38, -30, -17, -1, 12, 31, 47, 60, 66, 66, 60, 51, 41, 30, 18, 6, -1, -8, -14, -19, -25, -30, -35, -39, -43, -46, -46, -44, -39, -32, -21, -8, 12, 31, 47, 61, 70, 70
+target_str:  -29, -29, -29, -26, -24, -21, -16, -7, 2, 12, 18, 20, 19, 14, 7, 0, -8, -16, -22, -27, -32, -37, -40, -40, -38, -33, -25, -17, -8, -1, 2, 4, 5, 6, 8, 11, 15, 18, 19, 19, 16, 11, 5, 0, -7, -13, -18, -21, -22, -22
+MSE:  5474.603130057591
+pred_str:  -15, -22, -24, -25, -27, -32, -39, -45, -49, -51, -53, -54, -55, -56, -57, -59, -62, -65, -65, -56, -27, 2, 42, 67, 85, 87, 70, 42, 15, -2, -17, -26, -29, -33, -37, -41, -43, -43, -43, -43, -41, -35, -25, -12, -1, 0, 1, 3, 4, 1
+target_str:  -24, -36, -40, -39, -32, -23, -15, -12, -12, -13, -16, -28, -33, -47, -59, -70, -74, -77, -74, -64, -43, -14, 21, 59, 88, 99, 99, 82, 57, 25, -7, -35, -60, -69, -74, -75, -69, -66, -64, -65, -70, -83, -95, -115, -134, -153, -167, -174, -170, -164
+MSE:  616.2603438924586
+pred_str:  -31, -27, -20, -15, -12, -12, -11, -13, -16, -21, -25, -28, -29, -25, -18, -7, 0, 0, -7, -16, -24, -27, -29, -31, -33, -33, -32, -32, -29, -23, -13, -2, 20, 46, 61, 60, 45, 27, 6, -16, -31, -43, -51, -54, -53, -45, -33, -19, -6, 12, 36, 49, 49, 40, 25, 8, -16, -35, -51, -60, -64, -64, -61, -55, -45, -35, -28, -24, -19, -11, 1, 23, 41, 51, 50, 37, 23, 7, -17, -34, -47, -57, -62, -60, -54, -46, -36, -25, -17, -15, -11
+target_str:  -31, -30, -29, -20, -4, 17, 36, 47, 52, 51, 47, 38, 25, 7, -11, -24, -33, -36, -34, -31, -29, -28, -29, -29, -28, -19, 0, 27, 55, 76, 83, 81, 74, 63, 47, 25, 0, -23, -42, -52, -56, -53, -46, -37, -31, -27, -25, -16, 1, 24
+MSE:  3576.059336578754
+pred_str:  -56, -35, -17, -1, 13, 18, 20, 23, 26, 27, 25, 19, 14, 9, 2, 3, -3, -17, -33, -51, -70, -86, -97, -96, -86, -67, -51, -33, -17, -10, 1, 13, 21, 24, 24, 22, 14, 4, -16, -43, -65, -83, -92, -91, -74, -57, -42, -27, -19, -11, -3, 12, 21, 27, 27, 25, 20, 17, 12, 10, 7
+target_str:  -72, -57, -30, -27, -13, -1, 6, 11, 17, 24, 28, 28, 23, 21, 10, -9, -35, -82, -101, -104, -101, -91, -72, -47, -28, -15, -9, -6, -3, -5, -18, -32, -38, -51, -65, -65, -61, -59, -44, -38, -26, -3, 10, 15, 23, 32, 33, 28, 24, 19
+MSE:  0.5755521272492526
+pred_str:  -44, -45, -35, -23, -9, 1, 15, 27, 40, 52, 58, 59, 54, 42, 24, 3, -16, -37, -56, -72, -84, -89, -86, -78, -66, -47, -28, -10, 5, 12, 15, 17, 21, 27, 33, 33, 29, 22, 11, 0, -17, -38, -59, -74, -82, -81, -71, -54, -32, -11, 11, 28, 48, 64, 75, 75, 69, 54, 36, 15, -4, -27, -52, -70, -85, -95, -95, -86, -71, -53, -35, -19, 3, 12, 17, 22, 27, 32, 32, 28, 20, 9, 0
+target_str:  -44, -30, -15, 0, 16, 31, 45, 56, 63, 65, 60, 50, 35, 17, -5, -35, -67, -89, -97, -91, -77, -60, -41, -23, -8, 2, 8, 11, 11, 11, 9, 4, 0, -2, -7, -24, -48, -68, -75, -67, -45, -14, 14, 35, 47, 49, 45, 36, 26, 16
+MSE:  18993.272702013848
+pred_str:  -63, -48, -23, 0, 4, 8, 12, 21, 28, 36, 41, 42, 45, 48, 51, 62, 68, 72, 67, 60, 53, 40, 22, 1, -10, -19, -27, -35, -46, -61, -73, -81, -85, -83, -79, -74, -73, -69, -60, -43, -18, 0, 14, 18, 23, 31, 39, 42, 44, 47, 50, 59, 65, 67, 65, 59, 52, 42, 32, 20, 0, -11, -20, -27, -35, -46, -59, -69, -74, -76, -76, -73, -69, -65, -63, -63, -62, -62, -62
+target_str:  -57, -42, -20, -2, 4, 6, 2, 3, 13, 28, 38, 46, 52, 53, 49, 50, 55, 58, 56, 57, 61, 53, 43, 26, 8, -5, -19, -30, -39, -43, -52, -66, -78, -79, -70, -69, -68, -55, -48, -44, -24, -10, -6, 0, 5, 7, 10, 13, 24, 37
+MSE:  0.02707780393457061
+pred_str:  25, 50, 75, 94, 105, 96, 74, 46, 18, -10, -24, -34, -38, -33, -24, -16, -9, -2, 15, 32, 51, 63, 64, 58, 46, 29, 7, -16, -31, -43, -46, -44, -37, -27, -14, -3, 8, 27, 50, 68, 77, 78, 71, 58, 40, 16, -11, -28, -41, -46, -44, -37, -29, -22, -15, -8, 0, 15, 33, 53, 67, 71, 65, 52, 36, 16, -3, -16, -26, -30, -28, -24, -18, -12, -5, 3, 13, 25, 37, 45, 49, 48, 42, 33, 20, 1, -9, -17, -25, -25
+target_str:  26, 37, 44, 41, 35, 21, 7, -8, -20, -31, -40, -45, -44, -40, -29, -15, 0, 12, 20, 27, 36, 44, 50, 51, 45, 35, 25, 14, 4, -4, -12, -19, -25, -28, -25, -19, -15, -10, -7, -7, -7, -7, -2, 6, 17, 27, 34, 39, 44, 50
+MSE:  1261.8561571356915
+pred_str:  55, 52, 51, 54, 59, 66, 73, 78, 79, 77, 70, 63, 53, 44, 34, 18, -2, -30, -55, -69, -73, -71, -67, -63, -63, -61, -60, -62, -65, -71, -77, -85, -89, -81, -67, -53, -39, -25, -21, -14, -10, -11, -15, -16, -18, -19, -23, -26, -26, -23, -20, -22
+target_str:  55, 60, 51, 28, 10, -12, -31, -46, -56, -60, -62, -64, -65, -58, -45, -32, -15, 17, 45, 63, 60, 54, 53, 50, 50, 49, 47, 42, 43, 51, 57, 67, 69, 66, 56, 37, 29, 17, 1, -16, -31, -39, -43, -45, -43, -41, -45, -53, -57, -51
+MSE:  1.5061853726288121
+pred_str:  22, 22, 23, 22, 20, 17, 13, 10, 6, 1, 0, 1, 4, 8, 17, 33, 73, 92, 81, 53, 36, 28, 22, 17, 11, 4, -8, -16, -21, -21, -18, -11, -3, 12, 40, 77, 93, 73, 46, 30, 25, 23, 23, 21, 17, 10, 5, 0, -1, -3, -4, -4, -3, -1, 0, 4, 11, 21, 49, 87, 95, 73, 50, 36, 30, 27, 23, 19, 15, 10, 4, 2, 2, 5, 9, 18, 35, 77, 103, 92, 65, 43, 33, 28, 27, 25, 20, 13
+target_str:  19, 17, 17, 15, 12, 9, 6, 6, 5, 5, 7, 14, 29, 56, 91, 87, 60, 44, 35, 28, 21, 14, 6, -2, -11, -18, -20, -19, -14, -9, 0, 15, 51, 93, 97, 72, 45, 30, 20, 17, 17, 17, 16, 13, 9, 6, 5, 7, 11, 19
+MSE:  1.2732016455534256
+pred_str:  45, 34, -18, -49, -39, -30, -18, -15, -19, -35, -48, -51, -39, -25, -9, 0, -16, -41, -34, -36, -31, -21, -15, -11, -20, -26, -27, -21, -13, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+target_str:  46, 38, 16, -47, -38, -8, -35, -32, -34, -37, -37, -40, -51, -61, -68, -70, -63, -50, -41, -24, -46, -32, 18, 28, 24, -7, -7, 0, 14, 28, 28, 23, 22, 27, 37, 44, 45, 31, 16, -21, -46, -13, -28, -39, -29, -25, -22, -17, -23, -39
+MSE:  0.06703295466428413
+pred_str:  37, 43, 43, 48, 57, 59, 52, 45, 39, 35, 30, 27, 22, 20, 17, 14, 12, 13, 15, 28, 56, 77, 89, 90, 79, 67, 57, 43, 30, 17, 5, -17, -29, -32, -27, -19, -14, -10, -9, -10, 0, 33, 42, 41, 44, 54, 56, 50, 42, 36, 32, 28, 25, 23, 20, 16, 14, 13, 16, 31, 57, 74, 81, 80, 70, 59, 52, 42, 34, 26, 22, 17, 16, 14, 13, 14, 17, 31, 45, 48, 46, 40, 34, 31
+target_str:  49, 52, 42, 39, 48, 56, 54, 46, 39, 34, 28, 23, 20, 16, 12, 10, 17, 44, 78, 92, 98, 87, 76, 57, 37, 17, 0, -13, -22, -23, -19, -13, -9, -6, -4, 15, 46, 55, 47, 37, 39, 41, 34, 28, 24, 21, 17, 14, 12, 12
+MSE:  0.25746256917487426
+pred_str:  -28, -30, -29, -27, -25, -26, -25, -24, -21, -15, -3, 21, 86, 73, 56, 60, 50, 44, 38, 34, 34, 31, 29, 26, 25, 25, 26, 28, 31, 37, 48, 63, 75, 80, 72, 60, 50, 42, 33, 26, 16, 4, -1, -9, -17, -25, -31, -35, -37, -37, -35, -32, -28, -25, -23, -23, -23, -24, -23, -23, -22, -20, -17, -14, -12, 20, 82, 72, 56, 59, 50, 43, 37, 34, 33, 30, 28, 26, 26, 27, 28, 30, 36, 47
+target_str:  -31, -34, -34, -30, -25, -22, -21, -13, 20, 67, 46, 40, 42, 28, 24, 23, 25, 28, 30, 29, 28, 29, 32, 36, 45, 61, 80, 102, 108, 100, 89, 71, 59, 44, 30, 15, 3, -8, -18, -25, -31, -34, -36, -37, -34, -31, -31, -29, -14, 14
+MSE:  0.21489219028302362
+pred_str:  -48, -54, -56, -54, -50, -42, -44, -41, -40, -37, -31, -33, -26, -26, -24, -22, -18, -16, -19, -21, -22, -25, -25, -25, -27, -32, -39, -47, -52, -62, -67, -68, -62, -56, -52, -47, -44, -40, -38, -37, -34, -33, -33, -34, -34, -33, -32, -30, -28, -27, -26, -26, -27, -28, -31, -37, -43, -52, -60, -68, -70, -65, -63, -61, -59, -56, -54, -53, -53, -55
+target_str:  -70, -92, -51, 20, 42, 46, 48, 32, 12, 3, 16, 21, 18, 19, 22, 31, 58, 90, 88, 67, 52, 32, 11, 8, -12, -26, -24, -23, -25, -36, -46, -49, -44, -40, -39, -34, -26, -43, -72, -92, -12, 54, -4, -7, 9, 9, 1, 9, 24, 31
+MSE:  0.21390541772600968
+pred_str:  -74, -67, -59, -68, -73, -74, -77, -84, -85, -86, -88, -89, -92, -95, -104, -110, -108, -100, -106, -111, -112, -115, -120, -115, -108, -101, -104, -107, -112, -116, -119, -122, -125, -126, -127, -129, -133, -133, -130, -127, -120, -113, -104, -93, -75, -51, -16, 11, 22, 15, 18, 28, 36, 36, 37, 42, 45, 52, 56, 61, 66, 64, 66, 66, 66, 63, 57, 50, 38, 26, 16, 8, 0, -13, -34, -54, -65
+target_str:  -67, -69, -86, -45, 4, 13, 18, 8, 0, 6, 23, 30, 33, 41, 48, 50, 56, 63, 70, 64, 62, 68, 44, 31, 4, -14, -29, -47, -55, -56, -60, -74, -91, -98, -94, -85, -81, -90, -80, -14, 12, 23, 19, 1, 0, 13, 21, 27, 32, 36
+MSE:  1.745677890390607
+pred_str:  80, 52, 35, 23, 16, 8, 0, -4, -8, -11, -12, -12, -11, -8, -4, 1, 16, 39, 74, 97, 91, 73, 56, 45, 35, 27, 20, 15, 11, 11, 10, 8, 7, 7, 10, 17, 27, 42, 59, 76, 75, 62, 53, 43, 34, 26, 20, 15, 12, 11, 12, 13, 15, 18, 19, 22, 20, 13, 7, 0
+target_str:  68, 55, 48, 37, 24, 13, 5, 0, -7, -14, -18, -19, -16, -7, 3, 16, 39, 71, 92, 84, 69, 58, 46, 34, 23, 15, 9, 5, 4, 6, 5, 2, 0, 6, 15, 33, 57, 84, 85, 64, 56, 53, 41, 25, 12, 0, -10, -16, -21, -22
+MSE:  0.18802006357483364
+pred_str:  43, 33, 19, 11, 4, -2, -11, -22, -34, -49, -61, -65, -59, -47, -32, -16, 0, 16, 30, 43, 51, 53, 52, 49, 43, 34, 25, 19, 14, 9, 5, 1, 0, -1, -3, -5, -7, -10, -12, -15, -17, -18, -17, -14, -9, -4, 2, 17, 31, 44, 53, 58, 58, 53, 44, 32, 20, 12, 5, 0, -1, -4, -6, -9, -12, -16, -20, -25, -31, -39, -45, -43, -34, -23, -11, -3, 5, 22, 41, 56, 67, 72, 71, 65, 54, 42, 30, 20, 12, 5, 0, -1, -3, -4, -6, -9, -13, -18
+target_str:  34, 9, -15, -36, -53, -57, -54, -43, -29, -15, -1, 13, 29, 42, 57, 65, 67, 65, 54, 40, 19, -5, -31, -58, -78, -89, -87, -76, -56, -33, -10, 8, 22, 33, 39, 48, 59, 70, 79, 85, 84, 75, 55, 33, 7, -13, -28, -35, -36, -31
+MSE:  2212.843189382896
+pred_str:  19, 11, 6, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+target_str:  19, 14, 8, 3, 0, -3, -4, -3, -1, 1, 13, 34, 55, 69, 75, 73, 58, 37, 20, 9, 3, 1, 0, 1, 2, 3, 4, 6, 12, 24, 43, 67, 84, 81, 66, 53, 41, 29, 19, 11, 5, 1, -1, -2, 0, 2, 5, 7, 12, 25
+MSE:  1.42574731056459
+pred_str:  41, 40, 41, 43, 44, 44, 45, 46, 46, 47, 47, 47, 48, 48, 49, 51, 53, 53, 52, 49, 43, 35, 26, 16, 10, 6, 6, 7, 8, 9, 11, 14, 17, 20, 22, 24, 24, 24, 23, 23, 23, 23, 23, 22, 22, 23, 24, 24, 24, 24, 25, 26, 26, 26, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 30, 31, 31, 31, 31
+target_str:  41, 42, 46, 50, 58, 70, 73, 74, 75, 72, 67, 57, 42, 28, 20, 15, 12, 12, 13, 17, 23, 34, 46, 57, 65, 65, 62, 57, 53, 54, 58, 57, 59, 59, 60, 65, 74, 89, 102, 110, 119, 130, 125, 108, 85, 71, 62, 58, 58, 57
+MSE:  0.10188413328223853
+pred_str:  8, 3, -1, -5, -9, -8, -6, -4, -1, 4, 19, 37, 57, 74, 75, 63, 49, 39, 30, 22, 16, 12, 10, 7, 5, 3, 1, 0, 0, 0, 1, 4, 9, 16, 29, 50, 74, 96, 91, 70, 51, 39, 30, 25, 20, 16, 11, 7, 4, 0, -1, -5, -8, -7, -3, 2, 13, 31, 51, 70, 83, 81, 67, 50, 35, 24, 16, 11, 9, 6, 4, 2
+target_str:  6, 0, -5, -8, -8, -6, -2, 3, 11, 24, 45, 63, 73, 67, 56, 44, 32, 23, 17, 13, 9, 6, 3, 1, 0, 0, 2, 7, 14, 27, 47, 73, 91, 81, 63, 48, 37, 29, 24, 20, 16, 11, 4, -1, -6, -9, -9, -5, 0, 6
+MSE:  1.06504755882298
+pred_str:  -16, -30, -45, -60, -76, -85, -71, -58, -49, -41, -34, -25, -18, -12, -2, 2, 0, 0, -1, -9, -14, -20, -44, -59, -78, -82, -56, -40, -30, -24, -17, -12, -5, 19, 35, 39, 35, 27, 18, 13, 12, 13, 16, 14, 10, 3, -1, -11, -31, -50, -71, -91, -86, -71, -58, -51, -46, -39, -33, -27, -22, -17, -11, 1, 14, 19, 20, 19, 17, 14, 12, 10, 11, 15, 14, 11, 4, -3, -16, -37, -59, -80, -93, -84, -68, -54, -46, -37, -27
+target_str:  -22, -42, -67, -104, -94, -65, -52, -45, -37, -23, -13, -4, 3, 5, 1, 1, -2, -6, -7, -24, -51, -69, -98, -82, -51, -48, -36, -31, -23, -15, -5, 3, 12, 15, 12, 8, 2, -2, -8, -23, -43, -70, -96, -82, -67, -55, -46, -37, -24, -12
+MSE:  0.4965266920859362
+pred_str:  -8, -20, -30, -39, -45, -47, -45, -39, -30, -17, 1, 27, 47, 62, 71, 73, 67, 54, 38, 20, 3, -13, -27, -36, -40, -39, -35, -32, -28, -24, -18, -9, 3, 19, 32, 40, 39, 31, 17, 0, -17, -32, -43, -49, -48, -44, -36, -28, -19, -7, 13, 37, 55, 67, 74, 71, 60, 45, 29, 14, 2, -10, -20, -28, -32, -34, -32, -28, -23, -16, -9, -2, 11, 28, 43, 51, 48, 37, 20, 0, -14, -28, -38, -44, -46, -43, -35
+target_str:  -3, -20, -32, -42, -48, -49, -44, -34, -23, -10, 2, 17, 33, 47, 56, 58, 51, 39, 24, 6, -8, -22, -31, -34, -34, -34, -33, -28, -20, -11, 0, 14, 32, 53, 70, 80, 81, 72, 57, 36, 13, -7, -25, -37, -45, -47, -46, -39, -29, -19
+MSE:  471.4590322452557
+pred_str:  21, 20, 21, 21, 20, 20, 18, 17, 14, 9, 3, -1, 4, 10, 17, 26, 35, 43, 47, 46, 42, 38, 33, 25, 15, 1, -17, -30, -36, -32, -28, -27, -26, -25, -24, -24, -23, -22, -21, -23, -21, -17, -10, 2, 14, 24, 32, 37, 39, 40, 42, 44, 45, 46, 48, 49, 52, 55, 62
+target_str:  19, 17, 17, 20, 23, 31, 36, 42, 46, 51, 58, 61, 51, 30, 3, -17, -24, -21, -11, -1, 7, 11, 7, 1, -6, -14, -21, -24, -27, -39, -45, -38, -27, -14, -3, 2, 3, 2, 4, 8, 13, 21, 30, 43, 59, 73, 84, 89, 93, 102
+MSE:  1354.1026879965552
+pred_str:  16, 13, 11, 11, 11, 12, 12, 11, 11, 10, 9, 9, 10, 12, 15, 17, 19, 19, 17, 15, 14, 13, 12, 12, 13, 13, 13, 14, 14, 14, 13, 11, 9, 9, 11, 14, 16, 16, 16, 14, 12, 11, 10, 10, 9, 9, 9, 9, 10, 11, 14, 18, 21, 22, 22, 21, 19, 17, 16, 15, 15, 16, 17, 18, 18, 18, 18, 17, 15
+target_str:  15, 10, 7, 5, 2, 0, -3, -4, -3, 0, 9, 25, 45, 68, 83, 74, 56, 39, 27, 19, 14, 11, 9, 9, 11, 11, 11, 11, 18, 32, 55, 78, 91, 76, 48, 29, 18, 13, 10, 7, 4, 0, -2, -5, -5, -2, 3, 13, 30, 55
+MSE:  0.8988982367001467
+pred_str:  -14, -9, -3, 2, 21, 43, 60, 61, 50, 36, 26, 18, 14, 11, 9, 7, 6, 6, 6, 6, 9, 21, 43, 70, 83, 73, 46, 25, 13, 5, 1, -3, -8, -11, -13, -11, -6, 0, 15, 41, 61, 63, 52, 38, 27, 19, 16, 14, 12, 10, 9, 6, 6, 4, 3, 5, 11, 27, 54, 82, 98, 82, 46, 26, 16, 11, 8, 4, 0
+target_str:  -17, -15, -10, -4, 1, 9, 23, 46, 68, 73, 63, 48, 35, 26, 18, 14, 10, 7, 7, 4, 1, 0, 7, 23, 52, 89, 100, 81, 40, 18, 10, 7, 5, 1, -2, -6, -11, -14, -12, -10, -4, 5, 31, 61, 77, 72, 53, 36, 25, 18
+MSE:  1.3368339284554824
+pred_str:  -56, -56, -50, -41, -38, -32, -27, -19, -14, -8, 40, 44, 28, 24, 11, 23, 36, 42, 43, 38, 38, 46, 61, 76, 82, 76, 69, 58, 48, 34, 14, -18, -37, -48, -55, -57, -59, -58, -52, -46, -38, -31, -27, -16, 17, 46, 49, 33, 24, 14, 14, 22, 29, 32, 31, 30, 35
+target_str:  -56, -55, -48, -41, -39, -34, -37, 1, 74, 39, 21, 19, 2, 6, 17, 23, 30, 36, 38, 46, 58, 69, 81, 84, 74, 43, 54, 46, 25, 7, -18, -31, -36, -40, -48, -56, -63, -60, -56, -51, -49, -45, -48, 25, 78, 30, 33, 18, 5, 12
+MSE:  0.13579508648224384
+pred_str:  6, 3, 0, -1, 0, 0, 0, 0, 1, 7, 18, 38, 65, 89, 88, 65, 42, 28, 20, 14, 11, 11, 13, 16, 18, 18, 14, 10, 7, 5, 2, 3, 12, 23, 36, 49, 56, 54, 39, 25, 14, 9, 6, 4, 4, 5, 6, 6, 6, 5, 2, 0, -1, -2, -3, -4, -5, -7, -7, -4, -2, 0, 2, 6, 11, 15, 17, 15, 11, 9, 11, 14, 17, 19, 19, 16, 10, 7, 6, 4, 2, 1, 0, 1, 3, 5, 6, 6, 6, 5, 3, 1, 0, -1, -1, -1, -1, -1
+target_str:  10, 13, 15, 17, 21, 29, 49, 73, 83, 70, 49, 35, 25, 16, 9, 4, 0, -2, -5, -7, -7, 0, 11, 28, 49, 77, 90, 72, 46, 29, 19, 13, 10, 8, 9, 9, 10, 13, 19, 28, 47, 77, 95, 83, 53, 35, 24, 15, 8, 0
+MSE:  1.6964121836283312
+pred_str:  -50, -65, -69, -66, -59, -53, -50, -51, -57, -68, -82, -96, -107, -103, -95, -81, -61, -37, -17, -11, 1, 16, 17, 17, 16, 19, 29, 45, 54, 50, 54, 60, 66, 72, 78, 80, 81, 82, 77, 67, 57, 49, 37, 16, -2, -28, -45, -55, -62, -68, -70, -71, -72, -76, -83, -89, -89, -78, -51, -24, -2, 15, 22, 28, 30, 27, 30, 35, 42, 45, 47, 49, 51, 53, 62, 68, 73
+target_str:  -47, -55, -61, -69, -74, -79, -87, -91, -92, -87, -60, -37, -13, 5, 3, 4, 6, 17, 31, 38, 42, 43, 45, 48, 51, 55, 65, 76, 83, 92, 103, 105, 84, 55, 37, 20, 0, -19, -38, -48, -63, -77, -82, -91, -99, -101, -96, -107, -89, -56
+MSE:  0.11794569755186694
+pred_str:  -4, -1, 0, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+target_str:  -24, -39, -61, -79, -86, -85, -75, -59, -41, -27, -14, -7, -3, -2, -7, -14, -32, -51, -69, -67, -51, -50, -48, -30, -25, -23, -26, -33, -40, -49, -46, -36, -19, -2, 3, 9, 15, 15, 16, 13, 6, 1, -7, -13, -21, -15, -25, -36, -22, -20
+MSE:  0.02555288757403483
+pred_str:  -1, 4, 11, 18, 27, 38, 51, 61, 69, 72, 64, 50, 35, 17, 0, -15, -27, -35, -36, -27, -16, -5, 3, 14, 28, 45, 60, 76, 87, 80, 61, 40, 18, -1, -14, -25, -32, -34, -27, -19, -10, -3, 0, 2, 8, 14, 18, 26, 36, 49, 58, 63, 53, 40, 24, 6, -10, -24, -35, -38, -29, -19, -11, -4, 3, 14, 29, 45, 59, 74, 85, 78, 61, 42, 21, 0, -15, -29, -39, -43, -33, -19, -8, 2, 13, 24, 35, 48, 62, 73, 79, 71, 55, 37, 20, 5, -14, -29
+target_str:  13, 33, 42, 40, 28, 15, 4, -3, -10, -11, -9, -7, -5, -3, -1, 2, 6, 15, 30, 49, 63, 69, 65, 56, 43, 26, 10, -6, -22, -36, -43, -43, -39, -31, -25, -24, -22, -15, 0, 25, 49, 66, 67, 58, 42, 24, 8, -1, -4, -4
+MSE:  5640.781407295547
+pred_str:  -16, 0, 10, 20, 28, 34, 30, 16, 0, -17, -28, -33, -38, -49, -75, -92, -93, -83, -62, -29, 1, 22, 42, 54, 52, 38, 19, 0, -16, -28, -32, -37, -51, -76, -87, -79, -59, -28, 10, 31, 43, 38, 22, 0, -16, -25, -26, -32, -46, -73, -88, -85, -64, -24, 16, 44, 60, 60, 43, 19, 0, -17, -25, -27, -32, -45, -71, -87, -86, -71
+target_str:  -11, 18, 43, 63, 75, 77, 57, 39, 38, 23, -8, -40, -69, -92, -102, -98, -82, -55, -23, 6, 30, 42, 45, 39, 26, 15, 9, 11, 9, -3, -39, -78, -100, -100, -82, -52, -20, 8, 27, 36, 35, 36, 57, 73, 62, 33, 0, -35, -63, -77
+MSE:  9735.234123318187
+pred_str:  -22, -15, -8, -3, 5, 10, 15, 21, 25, 28, 30, 28, 22, 12, 0, -12, -21, -26, -26, -23, -18, -11, -3, 4, 10, 17, 26, 35, 42, 46, 48, 47, 45, 41, 35, 28, 20, 10, 0, -11, -22, -30, -35, -38, -41, -41, -38, -31, -18, -4, 13, 23, 32, 39
+target_str:  -8, 15, 40, 62, 75, 78, 75, 64, 52, 41, 29, 20, 13, 5, -1, -9, -20, -31, -38, -44, -46, -46, -47, -44, -38, -38, -34, -32, -20, -9, 8, 30, 49, 60, 62, 55, 41, 24, 7, -9, -22, -30, -34, -36, -32, -29, -24, -21, -19, -20
+MSE:  344.1471827518546
+pred_str:  -57, -55, -47, -29, -12, 1, 18, 29, 41, 49, 52, 52, 52, 51, 40, 24, 0, -10, -24, -35, -38, -29, -15, 4, 23, 42, 52, 57, 59, 62, 62, 62, 62, 58, 49, 30, 0, -12, -27, -37, -36, -24, -6, 13, 24, 30, 28, 19, 6, -25, -52, -70, -75, -72, -61, -47, -25
+target_str:  -54, -67, -77, -79, -73, -67, -53, -30, 3, 41, 79, 111, 129, 133, 125, 108, 92, 76, 58, 33, 0, -32, -66, -93, -104, -97, -75, -49, -23, -2, 11, 17, 11, 1, -11, -25, -36, -45, -53, -57, -54, -51, -48, -40, -22, 0, 22, 42, 55, 62
+MSE:  3205.0072044036538
+pred_str:  -48, -43, -37, -35, -35, -34, -30, -30, -28, -26, -24, -21, -18, -17, -15, -11, -5, 4, 19, 46, 64, 72, 71, 70, 68, 66, 67, 68, 70, 71, 74, 83, 89, 90, 80, 64, 50, 42, 36, 30, 16, -5, -28, -41, -44, -41, -31, -17, -10, -9, -11, -13, -17, -20, -16, -12, -9, -11, -12, -14, -17, -17, -19, -19, -18, -17, -15, -12, -11, -13, -13, -12, -12, -11, -12, -12, -11, -10, -9, -11, -12, -14, -16, -19, -20, -21
+target_str:  -45, -38, -25, -6, 7, 55, 94, 96, 96, 90, 91, 87, 80, 74, 70, 69, 66, 61, 58, 59, 66, 76, 81, 90, 92, 76, 61, 50, 47, 44, 37, 19, -6, -25, -36, -40, -42, -42, -33, -20, -10, 24, 85, 81, 68, 61, 66, 71, 69, 63
+MSE:  0.25749945348375974
+pred_str:  14, 17, 24, 34, 51, 74, 86, 85, 80, 62, 45, 23, 0, -24, -44, -59, -67, -74, -81, -84, -77, -64, -53, -38, -18, 23, 75, 63, 62, 51, 38, 26, 23, 18, 14, 16, 25, 42, 60, 72, 76, 83, 83, 79, 65, 51, 34, 13, -13, -42, -65, -79, -87, -95, -92, -77, -62, -47, -27, 15, 86, 70, 66, 57, 42, 31, 25, 21, 18, 22, 33, 46, 60, 73, 81, 82, 83, 81, 70, 54, 35, 14, -15, -52, -72, -86, -94
+target_str:  14, 15, 25, 45, 64, 80, 78, 79, 83, 80, 66, 54, 35, 12, -10, -33, -52, -62, -65, -73, -81, -78, -65, -51, -42, -30, 31, 70, 54, 50, 38, 24, 23, 18, 12, 9, 16, 30, 48, 74, 88, 85, 84, 81, 79, 59, 46, 30, 6, -22
+MSE:  0.06245421879712941
+pred_str:  24, 13, -11, -24, -37, -45, -53, -60, -65, -68, -66, -55, -43, -26, 2, 99, 102, 82, 77, 49, 31, 25, 22, 19, 18, 22, 40, 59, 72, 72, 71, 65, 59, 49, 34, 12, -10, -28, -41, -48, -54, -61, -67, -71, -69, -59, -48, -34, -16, 20, 97, 100, 77, 69
+target_str:  22, 3, -16, -30, -38, -43, -51, -62, -73, -65, -48, -37, -18, 19, 60, 56, 42, 34, 17, 13, 15, 14, 11, 12, 25, 44, 66, 73, 68, 65, 75, 61, 42, 37, 16, -1, -20, -37, -49, -50, -50, -61, -73, -68, -51, -45, -31, 19, 77, 59
+MSE:  0.2264128478910721
+pred_str:  11, 4, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+target_str:  9, 3, 2, 4, 5, 5, 5, 6, 8, 12, 20, 42, 83, 99, 82, 52, 27, 12, 3, -3, -10, -15, -17, -15, -10, -3, 4, 17, 40, 73, 84, 62, 37, 20, 14, 13, 12, 11, 7, 2, 0, 1, 6, 13, 22, 38, 72, 92, 76, 47
+MSE:  2.478194497787275
+pred_str:  72, 72, 73, 73, 74, 75, 76, 77, 78, 79, 78, 79, 79, 80, 81, 81, 82, 84, 84, 84, 84, 84, 85, 85, 86, 85, 85, 85, 84, 85, 85, 85, 85, 86, 86, 85, 85, 84, 83, 81, 79, 79, 78, 79, 79, 80, 80, 80, 81, 81, 80, 79, 78
+target_str:  74, 74, 80, 89, 93, 88, 82, 78, 76, 80, 80, 76, 73, 74, 75, 77, 77, 77, 77, 73, 71, 72, 75, 75, 76, 78, 77, 74, 71, 67, 66, 68, 68, 68, 69, 69, 67, 67, 67, 67, 70, 74, 80, 80, 76, 73, 69, 67, 64, 62
+MSE:  0.014966987634600732
+MSE sample wise:  [0.044872517390915155, 410.6038568620702, 0.41780220731793505, 13827.882660426401, 1250.619505737037, 0.2770447631987508, 2.130201491309764, 1663.881933578002, 3921.011550220628, 3619.1186179652723, 0.20734292231833787, 0.10533702354837034, 3044.9217080123744, 5474.603130057591, 616.2603438924586, 3576.059336578754, 0.5755521272492526, 18993.272702013848, 0.02707780393457061, 1261.8561571356915, 1.5061853726288121, 1.2732016455534256, 0.06703295466428413, 0.25746256917487426, 0.21489219028302362, 0.21390541772600968, 1.745677890390607, 0.18802006357483364, 2212.843189382896, 1.42574731056459, 0.10188413328223853, 1.06504755882298, 0.4965266920859362, 471.4590322452557, 1354.1026879965552, 0.8988982367001467, 1.3368339284554824, 0.13579508648224384, 1.6964121836283312, 0.11794569755186694, 0.02555288757403483, 5640.781407295547, 9735.234123318187, 344.1471827518546, 3205.0072044036538, 0.25749945348375974, 0.06245421879712941, 0.2264128478910721, 2.478194497787275, 0.014966987634600732]
+AVG MSE:  1612.865162211102
+Count:  49
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.2
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible

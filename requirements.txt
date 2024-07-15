@@ -1,5 +1,10 @@
 transformers
-accelerate
-deepspeed
-datasets
 peft
+torch
+datasets
+tqdm
+accelerate
+numpy
+matplotlib
+pdb
+argparse

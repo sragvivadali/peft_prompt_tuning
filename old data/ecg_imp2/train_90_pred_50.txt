@@ -1,0 +1,19 @@
+[2024-07-05 09:25:19,051] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+All 1-dimensional arrays have been saved to ['./benchmark/train.csv', './benchmark/test.csv', './benchmark/eval.csv'].
+[2024-07-05 09:25:22,760] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.2
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible
+[2024-07-05 09:25:23,315] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-07-05 09:25:23,316] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+All 1-dimensional arrays have been saved to ['./benchmark/train.csv', './benchmark/test.csv', './benchmark/eval.csv'].
+max_vals [1.0172737027256264, 0.6358788304996957, 0.8780585637531843, 0.5703371606863332, 0.2582175326783534, 0.6815929574679479, 0.4814011836150589, 0.5770504865198544, 0.3648640357837354, 1.1852284490423035, 0.30373810308888555, 0.347842579348822, 0.2530007926888673, 0.5359585981714126, 1.2334026676596268, 0.4820464842265821, 0.7447405605878279, 0.3394267338185406, 0.26328929729390066, 0.49830573767242065, 0.4332330379281967, 0.6062498297873488, 0.25812287143869844, 0.6569031778328429, 0.26096405481995777, 0.23076062473186015, 0.361291317875315, 0.5461180099718109, 0.3308537673821901, 0.9329780208280937, 0.6898785427301292, 0.5438453641955051, 0.24583677141229052, 0.7229541131901488, 0.7263826898248835, 0.432460815366128, 1.0303882250761076, 0.374644169405007, 0.39385413861669377, 0.5827268928899484, 0.37438341644052264, 1.0000652545398951, 0.48653293157037325, 0.5059274783669776, 0.5431916531495725, 0.9781542780785814, 0.5570912375663158, 0.006170146630727074, 0.48549672876854877, 0.7643707894092603]
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.2
+[93m [WARNING] [0m using untested triton version (2.2.0), only 1.0.0 is known to be compatible

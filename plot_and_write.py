@@ -40,36 +40,35 @@ def plot_predicted_vs_ground_truth(pred_values, gt_values, title="Predicted vs. 
     axes = axes.flatten()  # Flatten the axes array for easy iteration
 
     for i in range(len(pred_values)):
-        if i + 1 < len(pred_values):
-            true_result = []
-            pred_result = []
-            corrupt_data = lines[i + 1][0].split(', ')
-            j = 0
+        true_result = []
+        pred_result = []
+        corrupt_data = lines[i + 1][0].split(', ')
+        j = 0
 
-            if query == "imputation":
-                for x in corrupt_data:
-                    if x != 'nan':
-                        true_result.append(float(x))
-                        pred_result.append(float(x))
-                    else:
-                        if j < len(gt_values):
-                            true_result.append(float(gt_values[i][j]))
-                        if j < len(pred_values):
-                            pred_result.append(float(pred_values[i][j]))
-            elif query == "extrapolation":  # Extrapolation
-                valid_data = [float(x) for x in corrupt_data if not math.isnan(float(x))]
-                true_result = valid_data + list(map(float, gt_values[i]))
-                pred_result = valid_data + list(map(float, pred_values[i][:len(gt_values[i])]))
+        if query == "imputation":
+            for x in corrupt_data:
+                if x != 'nan':
+                    true_result.append(float(x))
+                    pred_result.append(float(x))
+                else:
+                    if j < len(gt_values):
+                        true_result.append(float(gt_values[i][j]))
+                    if j < len(pred_values):
+                        pred_result.append(float(pred_values[i][j]))
+        elif query == "extrapolation":  # Extrapolation
+            valid_data = [float(x) for x in corrupt_data if not math.isnan(float(x))]
+            true_result = valid_data + list(map(float, gt_values[i]))
+            pred_result = valid_data + list(map(float, pred_values[i][:len(gt_values[i])]))
 
-            # Plot the data for this line on a subplot
-            ax = axes[i - 1]
-            ax.plot(true_result, label='Combined Data with Ground Truth', color='blue')
-            ax.plot(pred_result, label='Predicted String', color='red')
-            ax.set_xlabel('Index')
-            ax.set_ylabel('Value')
-            ax.set_title(f'{title} - Line {i}')
-            ax.legend()
-            ax.grid(True)
+        # Plot the data for this line on a subplot
+        ax = axes[i]
+        ax.plot(true_result, label='Combined Data with Ground Truth', color='blue')
+        ax.plot(pred_result, label='Predicted String', color='red')
+        ax.set_xlabel('Index')
+        ax.set_ylabel('Value')
+        ax.set_title(f'{title} - Line {i + 1}')
+        ax.legend()
+        ax.grid(True)
 
     plt.savefig(output)
     plt.show()

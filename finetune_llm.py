@@ -32,7 +32,7 @@ def parse_arguments():
     parser.add_argument("-l", "--label", type=str, default="gt values")
     parser.add_argument("--train", type=int, default=100)
     parser.add_argument("--test", type=int, default=50)
-    parser.add_argument("--eval", type=int, default=20)
+    parser.add_argument("--eval", type=int, default=50)
     parser.add_argument("--pred", type=int, default=50)
     return parser.parse_args()
 
@@ -191,31 +191,34 @@ def train_and_evaluate(model, device, tokenizer, optimizer, lr_scheduler, train_
     del optimizer
     return model
 
-def test_model(dataset, model, device, test_dataloader, tokenizer, text_column, label_column, args, max_val):
+def test_model(dataset, model, device, test_dataloader, tokenizer, text_column, label_column, args, max_vals):
     model.eval()
 
     mse_list = []
     pred_values = []
     gt_values = []
-    count = 0
-    for i in range(len(test_dataloader)):
-        invalid = False
-        with torch.no_grad():
-            inputs = tokenizer(f'{text_column} : {dataset["test"][i][text_column]} {args.prompt} : ', return_tensors="pt")
-            inputs = {k: v.to(device) for k, v in inputs.items()}
-            outputs = model.generate(
-                input_ids=inputs["input_ids"], attention_mask=inputs["attention_mask"], max_new_tokens=512, eos_token_id=tokenizer.eos_token_id
-            )
+    validity_count = 0
+    current_entry = 0
 
+    def is_integer(s):
+        try:
+            float(s)
+            return True
+        except ValueError:
+            return False
+
+    for batch in test_dataloader:
+        for i in range(len(batch["input_ids"])):
+            invalid = False
+            with torch.no_grad():
+                inputs = tokenizer(f'{text_column} : {dataset["test"][current_entry][text_column]} {args.prompt} : ', return_tensors="pt")
+                inputs = {k: v.to(device) for k, v in inputs.items()}
+                outputs = model.generate(
+                    input_ids=inputs["input_ids"], attention_mask=inputs["attention_mask"], max_new_tokens=512, eos_token_id=tokenizer.eos_token_id
+                )
+            
             pred_str = tokenizer.decode(outputs[0, inputs["input_ids"].shape[-1]:].detach().cpu().numpy(), skip_special_tokens=True)
-            target_str = dataset["test"][i][label_column]
-
-            def is_integer(s):
-                try:
-                    float(s)
-                    return True
-                except ValueError:
-                    return False
+            target_str = dataset["test"][current_entry][label_column]
 
             pred_list = []
             for x in pred_str.split(', '):
@@ -225,28 +228,30 @@ def test_model(dataset, model, device, test_dataloader, tokenizer, text_column, 
                     invalid = True
 
             pred_list = np.array(pred_list)
-     
+    
             gt_list = np.array([float(x) for x in target_str.split(', ') if is_integer(x)])
 
             if len(pred_list) != len(gt_list) or invalid:
-                count += 1
+                validity_count += 1
 
-            mse = compute_mse_from_str(max_val, pred_list, gt_list)
+            mse = compute_mse_from_str(max_vals[current_entry], pred_list, gt_list)
             pred_values.append(pred_list)
             gt_values.append(gt_list)
 
-            print("pred_str: ", pred_str)
-            print("target_str: ", target_str)
+            print("Predicted String: ", pred_str)
+            print("Target String: ", target_str)
             print("MSE: ", mse)
+            print("Maximum Value in Original data: ", max_vals[current_entry])
 
             write_to_output(filename = f"output_for_{args.train}_and_{args.pred}.txt", var_names = ["pred_str", "target_str", "mse"], values = [pred_str,target_str, mse])  # Example values to write to output file
 
             mse_list.append(mse)
+            current_entry += 1
 
     plot_predicted_vs_ground_truth(pred_values, gt_values, title = f"Ground Truth vs Predicted Data", output = f"output_for_{args.train}_and_{args.pred}.png", query = args.query)
     print('MSE sample wise: ', mse_list)
     print('AVG MSE: ', np.nanmean(mse_list))
-    print('Count: ', count)
+    print('Number of False Outputs: ', validity_count)
 
 
 def main():
@@ -254,8 +259,8 @@ def main():
     accelerator = Accelerator()
 
     # Initialize files
-    max_val = initialize_files(args.folder, args.text, args.label, args.train, pred_len=args.pred)
-    
+    max_vals = initialize_files(args.folder, args.text, args.label, args.train, args.test, args.eval, pred_len=args.pred)
+
     model_name_or_path = f"meta-llama/Llama-2-{args.model}-hf"
     tokenizer_name_or_path = f"meta-llama/Llama-2-{args.model}-hf"
 
@@ -312,8 +317,7 @@ def main():
     model = train_and_evaluate(model, device, tokenizer, optimizer, lr_scheduler, train_dataloader, eval_dataloader, accelerator, num_epochs)
 
     # Testing
-    test_model(dataset, model, device, test_dataloader, tokenizer, args.text, args.label, args, max_val)
-    
+    test_model(dataset, model, device, test_dataloader, tokenizer, args.text, args.label, args, max_vals)
 
 if __name__ == "__main__":
     main()
