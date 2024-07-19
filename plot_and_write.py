@@ -42,28 +42,35 @@ def plot_predicted_vs_ground_truth(pred_values, gt_values, title="Predicted vs. 
     for i in range(len(pred_values)):
         true_result = []
         pred_result = []
+        context_data = []
+
         corrupt_data = lines[i + 1][0].split(', ')
         j = 0
+
+        ax = axes[i]
 
         if query == "imputation":
             for x in corrupt_data:
                 if x != 'nan':
                     true_result.append(float(x))
                     pred_result.append(float(x))
+                    context_data.append(float(x))      
                 else:
-                    if j < len(gt_values):
+                    if j < len(gt_values[i]) and j < len(pred_values[i]):
                         true_result.append(float(gt_values[i][j]))
-                    if j < len(pred_values):
                         pred_result.append(float(pred_values[i][j]))
+                        context_data.append(np.nan)
+                    j+=1
+
         elif query == "extrapolation":  # Extrapolation
-            valid_data = [float(x) for x in corrupt_data if not math.isnan(float(x))]
-            true_result = valid_data + list(map(float, gt_values[i]))
-            pred_result = valid_data + list(map(float, pred_values[i][:len(gt_values[i])]))
+            context_data = [float(x) for x in corrupt_data if not math.isnan(float(x))]
+            true_result = context_data + list(map(float, gt_values[i]))
+            pred_result = context_data + list(map(float, pred_values[i][:len(gt_values[i])]))
 
         # Plot the data for this line on a subplot
-        ax = axes[i]
-        ax.plot(true_result, label='Combined Data with Ground Truth', color='blue')
-        ax.plot(pred_result, label='Predicted String', color='red')
+        ax.plot(true_result, label='Ground Truth', color='#264b96')
+        ax.plot(pred_result, label='Predicted String', color='#bf212f')
+        ax.plot(context_data, label='Context Data', color='#27b376')
         ax.set_xlabel('Index')
         ax.set_ylabel('Value')
         ax.set_title(f'{title} - Line {i + 1}')

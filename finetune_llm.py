@@ -17,7 +17,7 @@ import argparse
 from datasets import load_dataset
 import matplotlib.pyplot as plt
 
-from mse_distance import compute_mse_from_str
+from mse_distance import compute_mse_from_str, compute_mae
 from ecg2csv2 import initialize_files
 from plot_and_write import write_to_output, plot_predicted_vs_ground_truth
 
@@ -195,6 +195,9 @@ def test_model(dataset, model, device, test_dataloader, tokenizer, text_column, 
     model.eval()
 
     mse_list = []
+    mae_list = []
+    rmse_list = []
+
     pred_values = []
     gt_values = []
     validity_count = 0
@@ -235,23 +238,42 @@ def test_model(dataset, model, device, test_dataloader, tokenizer, text_column, 
                 validity_count += 1
 
             mse = compute_mse_from_str(max_vals[current_entry], pred_list, gt_list)
+            mae = compute_mae(max_vals[current_entry], pred_list, gt_list)
             pred_values.append(pred_list)
             gt_values.append(gt_list)
 
+            print("Maximum Value in Original data: ", max_vals[current_entry])
             print("Predicted String: ", pred_str)
             print("Target String: ", target_str)
-            print("MSE: ", mse)
-            print("Maximum Value in Original data: ", max_vals[current_entry])
 
-            write_to_output(filename = f"output_for_{args.train}_and_{args.pred}.txt", var_names = ["pred_str", "target_str", "mse"], values = [pred_str,target_str, mse])  # Example values to write to output file
+            print("MSE: ", mse)
+            print("MAE: ", mae)
+            print("RMSE: ", mse ** 0.5)
+
+            # maybe also look at (MAPE)
+
+            write_to_output(filename = f"output_for_{args.train}_and_{args.pred}.txt", var_names = ["max value", "pred_str", "target_str", "mse", "mae", "rsme"], values = [max_vals[current_entry], pred_str,target_str, mse, mae, mse ** 0.5])
 
             mse_list.append(mse)
+            mae_list.append(mae)
+            rmse_list.append(mse ** 0.5)
             current_entry += 1
 
     plot_predicted_vs_ground_truth(pred_values, gt_values, title = f"Ground Truth vs Predicted Data", output = f"output_for_{args.train}_and_{args.pred}.png", query = args.query)
-    print('MSE sample wise: ', mse_list)
+
     print('AVG MSE: ', np.nanmean(mse_list))
+    print('Median MSE: ', np.nanmedian(mse_list))
+
+    print('AVG RMSE: ', np.nanmean(rmse_list))
+    print('Median RMSE: ', np.nanmedian(rmse_list))
+
+    print('AVG MAE: ', np.nanmean(mae_list))
+    print('Median MAE: ', np.nanmedian(mae_list))
+
     print('Number of False Outputs: ', validity_count)
+
+    write_to_output(filename = f"output_for_{args.train}_and_{args.pred}.txt", var_names = ["AVG MSE", "Median MSE", "AVG RMSE", "Median RMSE", "AVG MAE", "Median MAE", "Number of False Outputs"], 
+    values = [np.nanmean(mse_list), np.nanmedian(mse_list), np.nanmean(rmse_list), np.nanmedian(rmse_list), np.nanmean(mae_list), np.nanmedian(mae_list), validity_count])
 
 
 def main():

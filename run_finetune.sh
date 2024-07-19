@@ -4,33 +4,34 @@
 x_values=(10 90 150)
 y_values=(5 10 25 50)
 
-# Create the output directory if it doesn't exist
-mkdir -p output
+if [ -z "$1" ]; then
+    echo "Parameter is null or empty"
+    exit 1
+fi
+
+
+# Create the output directory inside the first argument folder
+mkdir -p "$1"
 
 # Loop over each combination of x and y values
 for i in "${!x_values[@]}"; do
     for j in "${!y_values[@]}"; do
         x=${x_values[i]}
-        y=${y_values[j]}
-        
-        # Execute the command with the current x and y values asynchronously
-        output_file="output/train_${x}_pred_${y}.txt"
-        accelerate launch finetune_llm.py -f ./benchmark/ecg_data-imputation --train "$x" --pred "$y" -p "Predict the unknown values of the ECG data" > "$output_file"
+        y=${y_values[j]} 
 
-        echo "Output saved to: $output_file"
-    done
-done
+        # Run the command and save the output using tee
+        accelerate launch finetune_llm.py -f ./benchmark/"$1" --train "$x" --pred "$y" -p "$2" --query "$3"
 
+        # Define expected filenames
+        expected_txt="output_for_${x}_and_${y}.txt"
+        expected_png="output_for_${x}_and_${y}.png"
 
-mkdir -p "$1"
-mv output "$1"
-
-for i in "${!x_values[@]}"; do
-    for j in "${!y_values[@]}"; do
-        x=${x_values[i]}
-        y=${y_values[j]}
-
-        mv "output_for_train_${x}_pred_${y}.txt" "$1"
-        mv "output_for_train_${x}_pred_${y}.png" "$1"
+        # Move files if they exist
+        if [ -f "$expected_txt" ]; then
+            mv "$expected_txt" "$1"
+        fi
+        if [ -f "$expected_png" ]; then
+            mv "$expected_png" "$1"
+        fi
     done
 done
